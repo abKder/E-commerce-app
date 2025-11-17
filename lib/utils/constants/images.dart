@@ -5,4 +5,9 @@ class AImages{
   static const String onBoardingAnimation2 = "assets/animations/cart.json";
   static const String onBoardingAnimation3 = "assets/animations/delivery.json";
 
+  static const String facebookIcon = "assets/logos/facebook-icon.png";
+  static const String googleIcon = "assets/logos/google-icon.png";
+  static const String instagramIcon = "assets/logos/instagram-icon.png";
+  static const String webIcon = "assets/logos/web-icon.gif";
+
 }

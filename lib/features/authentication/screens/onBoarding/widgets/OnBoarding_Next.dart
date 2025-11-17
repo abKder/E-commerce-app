@@ -1,7 +1,7 @@
 import 'package:e_commerce/features/authentication/controllers/Onboarding/Onboarding_Controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import '../../../../../common/widgets/elevated_button.dart';
+import '../../../../../common/widgets/button/elevated_button.dart';
 import '../../../../../utils/constants/sizes.dart';
 
 class OnBoardingNextButton extends StatelessWidget {
