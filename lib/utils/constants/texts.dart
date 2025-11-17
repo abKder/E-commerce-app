@@ -9,7 +9,7 @@ class ATexts{
   static const String onBoardingSubTitle2 = 'Discover top-quality products at the best prices with a seamless shopping experience';
   static const String onBoardingSubTitle3 = 'Get your favorite items delivered to your doorstep, anytime, anywhere';
 
-
+//login form
   static const String loginTitle = "GloBus";
   static const String loginSubTitle = "Log in to Access Exclusive Shopping";
   static const String email = "Email";
@@ -19,4 +19,16 @@ class ATexts{
   static const String signIn = "Sign In";
   static const String createAccount = "Create Account";
   static const String orSignInWith = "Or Sign In With";
+
+  //create account form /Signup
+  static const String signupTitle = "Lets Get You Registered";
+  static const String firstName = "First Name";
+  static const String lastName = "Last Name";
+  static const String phoneNumber = "Phone Number";
+  static const String iAgreeTo = "I Agree To";
+  static const String privacyPolicy = "Privacy Policy";
+  static const String and = "and";
+  static const String termsOfUse = "Terms of use";
+  static const String orSignupWith = "Or Sign up With";
+
 }

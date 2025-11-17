@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../../common/widgets/button/elevated_button.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/constants/texts.dart';
+import '../../signup/signup.dart';
 
 class ALoginForm extends StatelessWidget {
   const ALoginForm({
@@ -26,7 +28,7 @@ class ALoginForm extends StatelessWidget {
         //Password
         TextFormField(
           decoration: InputDecoration(
-            prefixIcon: Icon(Iconsax.direct_right),
+            prefixIcon: Icon(Iconsax.password_check),
             labelText: ATexts.password,
             suffixIcon: Icon(Iconsax.eye),
           ),
@@ -61,7 +63,10 @@ class ALoginForm extends StatelessWidget {
         SizedBox(height: ASizes.spaceBtwItems / 2),
 
         //Create account
-        AElevatedButton(onPressed: (){}, child: Text(ATexts.createAccount)),
+        SizedBox(
+          width: double.infinity,
+          child: OutlinedButton(onPressed: ()=> Get.to(() => SignupScreen()), child: Text(ATexts.createAccount)),
+        )
       ],
     );
   }
