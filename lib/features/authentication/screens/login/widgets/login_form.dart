@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-
 import '../../../../../common/widgets/button/elevated_button.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/constants/texts.dart';
+import '../../forgot_password/forget_password.dart';
 import '../../signup/signup.dart';
 
 class ALoginForm extends StatelessWidget {
@@ -47,10 +47,8 @@ class ALoginForm extends StatelessWidget {
             ),
 
             //Forget Password
-            TextButton(
-              onPressed: (){},
+            TextButton(onPressed: () => Get.to(() => ForgetPasswordScreen()),
               child: Text(ATexts.forgetPassword),
-
             )
 
 
