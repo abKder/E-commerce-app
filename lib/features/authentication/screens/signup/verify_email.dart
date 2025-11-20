@@ -6,6 +6,7 @@ import 'package:e_commerce/utils/helpers/device_helpers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../../common/widgets/screens/success_screen.dart';
 import '../../../../utils/constants/images.dart';
 import '../../../../utils/constants/texts.dart';
 
@@ -46,8 +47,8 @@ class VerifyEmailScreen extends StatelessWidget {
               Text(ATexts.verifyEmailSubTitle, style: Theme.of(context).textTheme.bodySmall, textAlign: TextAlign.center,),
               SizedBox(height: ASizes.spaceBtwSections),
 
-              //done
-              AElevatedButton(onPressed: (){}, child: Text(ATexts.AContinue)),
+              //continue button
+              AElevatedButton(onPressed: () => Get.to(() => SuccessScreen()), child: Text(ATexts.AContinue)),
 
               //resend email
               SizedBox(
