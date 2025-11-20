@@ -20,7 +20,6 @@ class ForgetPasswordScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-
                 //header
                 //title
                 Text(ATexts.forgetPasswordTitle,

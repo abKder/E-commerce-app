@@ -18,7 +18,6 @@ class SuccessScreen extends StatelessWidget {
           padding: APadding.screenPadding,
           child: Column(
             children: [
-
               //image
               Image.asset(AImages.accountCreatedImage,
                   height: ADeviceHelper.getScreenHeight(context) * 0.4),
@@ -26,12 +25,14 @@ class SuccessScreen extends StatelessWidget {
 
               //Title
               Text(ATexts.accountCreatedTitle,
-                  style: Theme.of(context).textTheme.headlineMedium, textAlign: TextAlign.center),
+                  style: Theme.of(context).textTheme.headlineMedium,
+                  textAlign: TextAlign.center),
               SizedBox(height: ASizes.spaceBtwItems),
 
               //subtitle
               Text(ATexts.accountCreatedSubTitle,
-                  style: Theme.of(context).textTheme.bodySmall, textAlign: TextAlign.center),
+                  style: Theme.of(context).textTheme.bodySmall,
+                  textAlign: TextAlign.center),
               SizedBox(height: ASizes.spaceBtwSections),
 
               //continue button

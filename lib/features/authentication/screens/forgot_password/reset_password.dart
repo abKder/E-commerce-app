@@ -28,9 +28,9 @@ class ResetPasswordScreen extends StatelessWidget {
           padding: APadding.screenPadding,
           child: Column(
             children: [
-
               //images
-              Image.asset(AImages.mailSentImage, height: ADeviceHelper.getScreenHeight(context) * 0.4),
+              Image.asset(AImages.mailSentImage,
+                  height: ADeviceHelper.getScreenHeight(context) * 0.4),
               SizedBox(height: ASizes.spaceBtwItems),
 
               //title
@@ -39,21 +39,26 @@ class ResetPasswordScreen extends StatelessWidget {
               SizedBox(height: ASizes.spaceBtwInputFields),
 
               //email
-              Text("abdulkader@gmail.com", style: Theme.of(context).textTheme.bodyMedium),
+              Text("abdulkader@gmail.com",
+                  style: Theme.of(context).textTheme.bodyMedium),
               SizedBox(height: ASizes.spaceBtwInputFields),
 
               //subtitle
-              Text(ATexts.resetPasswordSubTitle, style: Theme.of(context).textTheme.bodySmall, textAlign: TextAlign.center,),
+              Text(
+                ATexts.resetPasswordSubTitle,
+                style: Theme.of(context).textTheme.bodySmall,
+                textAlign: TextAlign.center,
+              ),
               SizedBox(height: ASizes.spaceBtwSections),
 
               //done
-              AElevatedButton(onPressed: (){}, child: Text(ATexts.done)),
+              AElevatedButton(onPressed: () {}, child: Text(ATexts.done)),
 
               //resend email
               SizedBox(
-                width: double.infinity,
-                  child: TextButton(onPressed: (){}, child: Text(ATexts.resendEmail))),
-
+                  width: double.infinity,
+                  child: TextButton(
+                      onPressed: () {}, child: Text(ATexts.resendEmail))),
             ],
           ),
         ),

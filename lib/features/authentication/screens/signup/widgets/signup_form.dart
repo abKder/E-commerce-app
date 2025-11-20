@@ -22,20 +22,20 @@ class ASignupForm extends StatelessWidget {
             //First name
             Expanded(
                 child: TextFormField(
-                  decoration: InputDecoration(
-                    labelText: ATexts.firstName,
-                    prefixIcon: Icon(Iconsax.user),
-                  ),
-                )),
+              decoration: InputDecoration(
+                labelText: ATexts.firstName,
+                prefixIcon: Icon(Iconsax.user),
+              ),
+            )),
             SizedBox(width: ASizes.spaceBtwInputFields),
 
             //Last name
             Expanded(
               child: TextFormField(
                   decoration: InputDecoration(
-                    labelText: ATexts.lastName,
-                    prefixIcon: Icon(Iconsax.user),
-                  )),
+                labelText: ATexts.lastName,
+                prefixIcon: Icon(Iconsax.user),
+              )),
             )
           ],
         ),
@@ -73,10 +73,11 @@ class ASignupForm extends StatelessWidget {
         APrivacyPolicyCheckbox(),
         SizedBox(height: ASizes.spaceBtwItems),
 
-
-        AElevatedButton(onPressed: () => Get.to(() => VerifyEmailScreen()), child: Text(ATexts.createAccount) ),
+//create account button
+        AElevatedButton(
+            onPressed: () => Get.to(() => VerifyEmailScreen()),
+            child: Text(ATexts.createAccount))
       ],
     );
   }
 }
-
