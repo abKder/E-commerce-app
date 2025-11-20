@@ -13,41 +13,43 @@ class ForgetPasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: APadding.screenPadding,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+        appBar: AppBar(),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: APadding.screenPadding,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
 
-              //header
-              
-              //title
-              Text(ATexts.forgetPasswordTitle, style: Theme.of(context).textTheme.headlineMedium),
-              SizedBox(height: ASizes.spaceBtwItems /2),
-              //subtitle
-              Text(ATexts.forgetPasswordSubTitle, style: Theme.of(context).textTheme.labelMedium),
-SizedBox(height: ASizes.spaceBtwSections * 2),
-              //form
-              Column(
-                children: [
-                  TextFormField(
-                    decoration: InputDecoration(
-                      labelText: ATexts.email,
-                      prefixIcon: Icon(Iconsax.direct_right),
+                //header
+                //title
+                Text(ATexts.forgetPasswordTitle,
+                    style: Theme.of(context).textTheme.headlineMedium),
+                SizedBox(height: ASizes.spaceBtwItems / 2),
+
+                //subtitle
+                Text(ATexts.forgetPasswordSubTitle,
+                    style: Theme.of(context).textTheme.labelMedium),
+                SizedBox(height: ASizes.spaceBtwSections * 2),
+
+                //form
+                Column(
+                  children: [
+                    TextFormField(
+                      decoration: InputDecoration(
+                        labelText: ATexts.email,
+                        prefixIcon: Icon(Iconsax.direct_right),
+                      ),
                     ),
-                  ),
-                  SizedBox(height: ASizes.spaceBtwItems),
-                  
-                  AElevatedButton(onPressed: () => Get.to(() => ResetPasswordScreen()), child: Text(ATexts.submit)),
-                ],
-              )
-
-            ],
+                    SizedBox(height: ASizes.spaceBtwItems),
+                    AElevatedButton(
+                        onPressed: () => Get.to(() => ResetPasswordScreen()),
+                        child: Text(ATexts.submit)),
+                  ],
+                )
+              ],
+            ),
           ),
-        ),
-      )
-    );
+        ));
   }
 }

@@ -42,18 +42,17 @@ class ATexts{
   static const String done = 'Done';
   //
   // // Verify Email Screen
-  // static const String verifyEmailTitle = 'Verify your email address!';
-  // static const String verifyEmailSubTitle = 'We’ve sent a verification link to your email. Please check your inbox and click the link to verify your account';
-  // static const String uContinue = 'Continue';
-  // static const String resendEmail = 'Resend Email';
-  //
-  // // Account Created Successfully Screen
-  // static const String accountCreatedTitle = 'Your account successfully created';
-  // static const String accountCreatedSubTitle = 'Congratulations! Your account has been successfully created. You can now explore all the amazing features, start personalizing your experience, and enjoy seamless access to our services. Let’s get started!';
-  //
-  // static const String homeAppBarTitle = 'Good Morning';
-  // static const String homeAppBarSubTitle = 'Unknown Pro';
-  // static const String searchBarTitle = 'Search in Store';
-  // static const String popularCategories = 'Popular Categories';
+  static const String verifyEmailTitle = 'Verify your email address!';
+  static const String verifyEmailSubTitle = 'We’ve sent a verification link to your email. Please check your inbox and click the link to verify your account';
+  static const String AContinue = 'Continue';
+  static const String resendEmail = 'Resend Email';
+
+  // Account Created Successfully Screen
+  static const String accountCreatedTitle = 'Your account successfully created';
+  static const String accountCreatedSubTitle = 'Congratulations! Your account has been successfully created. You can now explore all the amazing features, start personalizing your experience, and enjoy seamless access to our services. Let’s get started!';
+  static const String homeAppBarTitle = 'Good Morning';
+  static const String homeAppBarSubTitle = 'Unknown Pro';
+  static const String searchBarTitle = 'Search in Store';
+  static const String popularCategories = 'Popular Categories';
 
 }

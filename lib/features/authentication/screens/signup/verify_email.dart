@@ -9,8 +9,8 @@ import 'package:get/get.dart';
 import '../../../../utils/constants/images.dart';
 import '../../../../utils/constants/texts.dart';
 
-class ResetPasswordScreen extends StatelessWidget {
-  const ResetPasswordScreen({super.key});
+class VerifyEmailScreen extends StatelessWidget {
+  const VerifyEmailScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class ResetPasswordScreen extends StatelessWidget {
               SizedBox(height: ASizes.spaceBtwItems),
 
               //title
-              Text(ATexts.resetPasswordTitle,
+              Text(ATexts.verifyEmailTitle,
                   style: Theme.of(context).textTheme.headlineMedium),
               SizedBox(height: ASizes.spaceBtwInputFields),
 
@@ -43,15 +43,15 @@ class ResetPasswordScreen extends StatelessWidget {
               SizedBox(height: ASizes.spaceBtwInputFields),
 
               //subtitle
-              Text(ATexts.resetPasswordSubTitle, style: Theme.of(context).textTheme.bodySmall, textAlign: TextAlign.center,),
+              Text(ATexts.verifyEmailSubTitle, style: Theme.of(context).textTheme.bodySmall, textAlign: TextAlign.center,),
               SizedBox(height: ASizes.spaceBtwSections),
 
               //done
-              AElevatedButton(onPressed: (){}, child: Text(ATexts.done)),
+              AElevatedButton(onPressed: (){}, child: Text(ATexts.AContinue)),
 
               //resend email
               SizedBox(
-                width: double.infinity,
+                  width: double.infinity,
                   child: TextButton(onPressed: (){}, child: Text(ATexts.resendEmail))),
 
             ],
