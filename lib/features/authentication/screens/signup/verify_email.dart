@@ -54,7 +54,12 @@ class VerifyEmailScreen extends StatelessWidget {
 
               //continue button
               AElevatedButton(
-                  onPressed: () => Get.to(() => SuccessScreen()),
+                  onPressed: () => Get.to(() => SuccessScreen(
+                    title: ATexts.accountCreatedTitle,
+                    subTitle: ATexts.accountCreatedSubTitle,
+                    image: AImages.accountCreatedImage, 
+                    onTap: (){},
+                  )),
                   child: Text(ATexts.AContinue)),
 
               //resend email
