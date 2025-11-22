@@ -1,8 +1,8 @@
+import 'package:e_commerce/utils/constants/sizes.dart';
 import 'package:flutter/cupertino.dart';
 import '../../../../../common/widgets/button/custom_shapes/circular_container.dart';
 import '../../../../../common/widgets/button/custom_shapes/clipper/rounded_edges_container.dart';
 import '../../../../../utils/constants/colors.dart';
-import '../../../../../utils/helpers/device_helpers.dart';
 
 class APrimaryHeaderContainer extends StatelessWidget {
   const APrimaryHeaderContainer({
@@ -28,7 +28,7 @@ class ARoundedEdgesContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return ARoundedEdges(
      child: Container(
-          height: ADeviceHelper.getScreenHeight(context) * 0.4,
+          height: ASizes.homePrimaryHeaderHeight,
           color: AColors.primary,
           child: Stack(
             children: [

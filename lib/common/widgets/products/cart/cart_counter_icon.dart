@@ -39,8 +39,7 @@ class ACartCounterIcon extends StatelessWidget {
                         .labelLarge!
                         .apply(
                         fontSizeFactor: 0.8,
-                        color:
-                        dark ? AColors.dark : AColors.light)),
+                        color: dark ? AColors.light : AColors.dark)),
               ),
             ))
       ],
