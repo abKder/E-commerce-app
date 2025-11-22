@@ -21,8 +21,7 @@ class ALoginForm extends StatelessWidget {
         //Email
         TextFormField(
           decoration: InputDecoration(
-              prefixIcon: Icon(Iconsax.direct_right),
-              labelText: ATexts.email),
+              prefixIcon: Icon(Iconsax.direct_right), labelText: ATexts.email),
         ),
         SizedBox(height: ASizes.spaceBtwInputFields),
 
@@ -42,17 +41,14 @@ class ALoginForm extends StatelessWidget {
           children: [
             Row(
               children: [
-                Checkbox(value: true, onChanged: (value){}),
+                Checkbox(value: true, onChanged: (value) {}),
                 Text(ATexts.rememberMe),
               ],
             ),
 
             //Forget Password
-            TextButton(onPressed: () => Get.to(() => ForgetPasswordScreen()),
-              child: Text(ATexts.forgetPassword),
+            TextButton(onPressed: () => Get.to(() => ForgetPasswordScreen()), child: Text(ATexts.forgetPassword),
             )
-
-
           ],
         ),
         SizedBox(height: ASizes.spaceBtwSections),
@@ -64,7 +60,7 @@ class ALoginForm extends StatelessWidget {
         //Create account
         SizedBox(
           width: double.infinity,
-          child: OutlinedButton(onPressed: ()=> Get.to(() => SignupScreen()), child: Text(ATexts.createAccount)),
+          child: OutlinedButton(onPressed: () => Get.to(() => SignupScreen()), child: Text(ATexts.createAccount)),
         )
       ],
     );
