@@ -31,8 +31,6 @@ class HomeScreen extends StatelessWidget {
 
             // home categories
             Text(ATexts.popularCategories, style: Theme.of(context).textTheme.headlineSmall! .apply(color: AColors.white)),
-
-            AHomeCategories(),
           ],
         )),
 

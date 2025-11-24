@@ -1,4 +1,5 @@
 import 'package:e_commerce/utils/constants/sizes.dart';
+import 'package:e_commerce/utils/helpers/device_helpers.dart';
 import 'package:flutter/cupertino.dart';
 import '../../../../../common/widgets/button/custom_shapes/circular_container.dart';
 import '../../../../../common/widgets/button/custom_shapes/clipper/rounded_edges_container.dart';
@@ -35,12 +36,20 @@ class ARoundedEdgesContainer extends StatelessWidget {
               Positioned(
                   top: -150,
                   right: -250,
-                  child: ACircularContainer()),
+                  child: ACircularContainer(
+                    height: ADeviceHelper.getScreenHeight(context) * 4,
+                    width: ADeviceHelper.getScreenHeight(context) * 4,
+                    backgroundColor: AColors.white.withValues(alpha: 0.1),
+                  )),
 
               Positioned(
                   top: 50,
                   right: -250,
-                  child: ACircularContainer()),
+                  child: ACircularContainer(
+                    height: ADeviceHelper.getScreenHeight(context) * 4,
+                    width: ADeviceHelper.getScreenHeight(context) * 4,
+                    backgroundColor: AColors.white.withValues(alpha: 0.1),
+                  )),
               child
             ],
           ),
