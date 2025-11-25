@@ -1,4 +1,4 @@
-import 'package:e_commerce/features/shop/screens/home/widgets/AHomeCategories.dart';
+import 'package:e_commerce/common/widgets/button/custom_shapes/circular_container.dart';
 import 'package:e_commerce/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:e_commerce/features/shop/screens/home/widgets/primary_header_container.dart';
 import 'package:e_commerce/utils/constants/colors.dart';
@@ -23,21 +23,49 @@ class HomeScreen extends StatelessWidget {
         // header container
         APrimaryHeaderContainer(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             //appbar
             AHomeAppBar(dark: dark),
             SizedBox(height: ASizes.spaceBtwSections),
 
             // home categories
-            Text(ATexts.popularCategories, style: Theme.of(context).textTheme.headlineSmall! .apply(color: AColors.white)),
+            Text(ATexts.popularCategories,
+                style: Theme.of(context)
+                    .textTheme
+                    .headlineSmall!
+                    .apply(color: AColors.white)),
+
+            SizedBox(height: ASizes.spaceBtwItems / 2),
+
+            SizedBox(
+              height: 10,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 10,
+                itemBuilder: (context, index) {
+                  return Column(
+                    children: [
+                      ACircularContainer(height: 80, width: 75),
+                      SizedBox(
+                          width: 55,
+                          child: Text("Sport Categories",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .labelMedium!
+                                  .apply(color: AColors.white),
+                              overflow: TextOverflow.ellipsis,
+                              textAlign: TextAlign.center)),
+                    ],
+                  );
+                },
+              ),
+            )
           ],
         )),
 
         //search bar
         ASearchBar(),
-
-
       ],
     ));
   }
