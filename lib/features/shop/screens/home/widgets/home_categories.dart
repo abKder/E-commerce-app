@@ -13,23 +13,31 @@ class AHomeCategories extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+
+        //heading part
         Text(ATexts.popularCategories,
             style: Theme.of(context)
                 .textTheme
                 .headlineSmall!
                 .apply(color: AColors.white)),
         SizedBox(height: ASizes.spaceBtwItems / 2),
+
+        //Categories list
         SizedBox(
-          height: 10,
+          height: 80,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: 10,
+            itemCount: 7,
             itemBuilder: (context, index) {
               return Column(
                 children: [
 
                   //circular image
-                  ACircularContainer(height: 80, width: 75),
+                  ACircularContainer(
+                      height: 56,
+                      width: 56,
+
+                  ),
 
                   //title
                   SizedBox(

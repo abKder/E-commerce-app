@@ -23,10 +23,13 @@ class ACircularContainer extends StatelessWidget {
     return Container(
       height: height,
       width: width,
+      padding: padding,
+      margin: margin,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(radius),
         color:backgroundColor,
       ),
+      child: child,
     );
   }
 }
