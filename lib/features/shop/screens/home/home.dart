@@ -1,3 +1,4 @@
+import 'package:e_commerce/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:e_commerce/features/shop/controllers/home/home_controller.dart';
 import 'package:e_commerce/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:e_commerce/features/shop/screens/home/widgets/home_categories.dart';
@@ -7,7 +8,7 @@ import 'package:e_commerce/utils/constants/images.dart';
 import 'package:e_commerce/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../common/widgets/products/product_cards/product_card_vertical.dart';
+import '../../../../common/widgets/layouts/grid_layout.dart';
 import '../../../../common/widgets/textfields/search_bar.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
 import '../../../../utils/helpers/helperFunction.dart';
@@ -31,6 +32,7 @@ class HomeScreen extends StatelessWidget {
 
                 // header container
                 APrimaryHeaderContainer(
+                    height: ASizes.homePrimaryHeaderHeight,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -56,16 +58,25 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   //banner
                   APromoSlider(
-                    banners: [AImages.banner1, AImages.banner2, AImages.banner3],
+                    banners: [
+                      AImages.banner1,
+                      AImages.banner2,
+                      AImages.banner3
+                    ],
                   ),
                   const SizedBox(height: ASizes.spaceBtwSections),
 
                   //section heading
-                  ASectionHeading(title: 'Popular Products', onPressed: (){}),
+                  ASectionHeading(title: 'Popular Products', onPressed: () {}),
                   const SizedBox(height: ASizes.spaceBtwItems),
 
                   //vertical product card
-                  AProductCardVertical()
+                  AGridLayout(
+                    itemCount: 6,
+                    itemBuilder: (context, index) {
+                      return AProductCardVertical();
+                    },
+                  )
                 ],
               ),
             )

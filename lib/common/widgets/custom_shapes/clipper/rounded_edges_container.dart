@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 
 import 'custom_rounded_clipper.dart';
 
-class ARoundedEdges extends StatelessWidget {
-  const ARoundedEdges({super.key, required this.child});
+class ARoundedEdgesContainer extends StatelessWidget {
+  const ARoundedEdgesContainer({super.key, required this.child});
   final Widget child;
 
   @override

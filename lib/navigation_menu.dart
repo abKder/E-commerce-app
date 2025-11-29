@@ -4,13 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'features/shop/screens/home/home.dart';
+import 'features/shop/screens/store/store.dart';
+import 'features/shop/screens/wishlist/wishlist.dart';
 
 class NavigationMenu extends StatelessWidget {
   const NavigationMenu({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(NavigationController(), permanent: true);
+    final controller = Get.put(NavigationController());
     bool dark = AHelperFunctions.inDarkMode(context);
     return Scaffold(
 
@@ -41,7 +43,8 @@ class NavigationMenu extends StatelessWidget {
 }
 
 class NavigationController extends GetxController {
+  static NavigationController get instance => Get.find();
   RxInt selectedIndex = 0.obs;
 
- List<Widget> screens = [HomeScreen(), Container(), Container(), Container()];
+ List<Widget> screens = [HomeScreen(), StoreScreen(), WishlistScreen(), Container()];
 }

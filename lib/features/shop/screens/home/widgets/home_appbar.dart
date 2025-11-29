@@ -38,7 +38,7 @@ class AHomeAppBar extends StatelessWidget {
 
       // bag icon
       actions: [
-        ACartCounterIcon(dark: dark)
+        ACartCounterIcon()
       ],
     );
   }
