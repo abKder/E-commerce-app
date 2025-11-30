@@ -42,14 +42,7 @@ class ACircularImage extends StatelessWidget {
           border: showBorder ? Border.all(color: borderColor, width: borderWidth) : null),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(100),
-        child: isNetworkImage
-            ? CachedNetworkImage(
-            fit: fit,
-            color: overlayColor,
-            progressIndicatorBuilder: (context, url, progress) => AShimmerEffect(width: 55, height: 55),
-            errorWidget: (context, url, error) => Icon(Icons.error),
-            imageUrl: image)
-            : Image(fit: fit, image: AssetImage(image)),
+        child: Image(fit: fit, image: isNetworkImage ? NetworkImage(image) : AssetImage(image)),
       ),
     );
   }
