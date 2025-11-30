@@ -13,6 +13,7 @@ class AImages {
   static const String webIcon = "assets/logos/web-icon.gif";
   static const String mailSentImage = "assets/images/mail_send.png";
   static const String accountCreatedImage = "assets/images/account_created.png";
+  static const String profile = "assets/logos/profile.png";
 
   //Categories images
   static const String food = "assets/icons/categories/food.jpg";

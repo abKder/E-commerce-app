@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
-import '../../../../../common/widgets/custom_shapes/clipper/circular_container.dart';
-import '../../../../../common/widgets/custom_shapes/clipper/rounded_edges_container.dart';
-import '../../../../../utils/constants/colors.dart';
-import '../../../../../utils/constants/sizes.dart';
+import 'circular_container.dart';
+import 'rounded_edges_container.dart';
+import '../../../../utils/constants/colors.dart';
+import '../../../../utils/constants/sizes.dart';
 
 class APrimaryHeaderContainer extends StatelessWidget {
   const APrimaryHeaderContainer({

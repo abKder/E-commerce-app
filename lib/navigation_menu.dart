@@ -3,6 +3,7 @@ import 'package:e_commerce/utils/helpers/helperFunction.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'features/personalization/screens/profile/profile.dart';
 import 'features/shop/screens/home/home.dart';
 import 'features/shop/screens/store/store.dart';
 import 'features/shop/screens/wishlist/wishlist.dart';
@@ -46,5 +47,5 @@ class NavigationController extends GetxController {
   static NavigationController get instance => Get.find();
   RxInt selectedIndex = 0.obs;
 
- List<Widget> screens = [HomeScreen(), StoreScreen(), WishlistScreen(), Container()];
+ List<Widget> screens = [HomeScreen(), StoreScreen(), WishlistScreen(), ProfileScreen()];
 }
