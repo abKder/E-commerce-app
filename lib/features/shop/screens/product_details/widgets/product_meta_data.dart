@@ -36,10 +36,10 @@ class AProductMetaData extends StatelessWidget {
                         .labelLarge!
                         .apply(color: AColors.black)),
               ),
-              SizedBox(height: ASizes.spaceBtwItems),
+              SizedBox(width: ASizes.spaceBtwItems),
 
               Text('\$250', style: Theme.of(context).textTheme.titleSmall!.apply(decoration: TextDecoration.lineThrough)),
-              SizedBox(height: ASizes.spaceBtwItems),
+              SizedBox(width: ASizes.spaceBtwItems),
 
               //actual price
               AProductPriceText(price: '150', isLarge: true),

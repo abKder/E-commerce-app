@@ -25,7 +25,7 @@ class AProductCardVertical extends StatelessWidget {
     return GestureDetector(
       onTap: () => Get.to(() => ProductDetailsScreen()),
       child: Container(
-        width: 180,
+        width: 350,
         padding: const EdgeInsets.all(1),
         decoration: BoxDecoration(
           boxShadow: AShadow.verticalProductShadow,
@@ -35,9 +35,10 @@ class AProductCardVertical extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+
             //thumbnail favourite button and discount tag
             ARoundedContainer(
-              height: 180,
+              height: 100,
               padding: const EdgeInsets.all(ASizes.sm),
               backgroundColor: dark ? AColors.dark : AColors.light,
               child: Stack(
@@ -47,7 +48,7 @@ class AProductCardVertical extends StatelessWidget {
 
                   //discount tag
                   Positioned(
-                    top: 12.0,
+                    top: 5,
                     child: ARoundedContainer(
                       radius: ASizes.sm,
                       backgroundColor: AColors.yellow.withValues(alpha: 0.8),
@@ -62,14 +63,10 @@ class AProductCardVertical extends StatelessWidget {
                   ),
 
                   //favourite button
-
                   Positioned(
                       right: 0,
                       top: 0,
-                      child: ACircularIcon(
-                        icon: Iconsax.heart5,
-                        color: Colors.red,
-                      ))
+                      child: ACircularIcon(icon: Iconsax.heart5, color: Colors.red))
                 ],
               ),
             ),

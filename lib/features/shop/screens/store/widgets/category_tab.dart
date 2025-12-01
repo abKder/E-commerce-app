@@ -18,38 +18,21 @@ class ACategoryTab extends StatelessWidget {
       physics: NeverScrollableScrollPhysics(),
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: ASizes.defaultSpace),
+          padding: const EdgeInsets.all(ASizes.defaultSpace),
+          // padding: const EdgeInsets.(horizontal: ASizes.defaultSpace),
           child: Column(
             children: [
               //brand showcase section 1
               ABrandShowcase(images: [
-                AImages.product2,
-                AImages.product2,
-                AImages.product2
+                AImages.product1,
+                AImages.product1,
+                AImages.product1
               ]),
               //brand showcase section 2
               ABrandShowcase(images: [
-                AImages.product2,
-                AImages.product2,
-                AImages.product2
-              ]),
-              //brand showcase section 3
-              ABrandShowcase(images: [
-                AImages.product2,
-                AImages.product2,
-                AImages.product2
-              ]),
-              //brand showcase section 4
-              ABrandShowcase(images: [
-                AImages.product2,
-                AImages.product2,
-                AImages.product2
-              ]),
-              //brand showcase section 5
-              ABrandShowcase(images: [
-                AImages.product2,
-                AImages.product2,
-                AImages.product2
+                AImages.product1,
+                AImages.product1,
+                AImages.product1
               ]),
               SizedBox(height: ASizes.spaceBtwItems),
 
@@ -61,7 +44,7 @@ class ACategoryTab extends StatelessWidget {
 
               //grid product layout
               AGridLayout(
-                itemCount: 10,
+                itemCount: 4,
                 itemBuilder: (context, index) {
                   return AProductCardVertical();
                 }),

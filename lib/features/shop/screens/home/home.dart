@@ -11,15 +11,14 @@ import 'package:get/get.dart';
 import '../../../../common/widgets/layouts/grid_layout.dart';
 import '../../../../common/widgets/textfields/search_bar.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
-import '../../../../utils/helpers/helperFunction.dart';
+
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    bool dark = AHelperFunctions.inDarkMode(context);
-    final controller = Get.put(HomeController());
+    Get.put(HomeController());
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -37,7 +36,7 @@ class HomeScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         //appbar
-                        AHomeAppBar(dark: dark),
+                        AHomeAppBar(),
                         SizedBox(height: ASizes.spaceBtwSections),
 
                         // home categories

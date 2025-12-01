@@ -1,38 +1,41 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/widgets.dart';
 
 class ACustomRoundedEdges extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
-    Path path = Path();
+    final Path path = Path();
 
+    // start at top-left corner
+    path.moveTo(0, 0);
+
+    // go down left edge to where the curve should start
     path.lineTo(0, size.height - 40);
 
-    Offset firstPositionCurve1 = Offset(40, size.height);
-    Offset secondPositionCurve1 = Offset(size.width / 2, size.height);
-
-    path.relativeQuadraticBezierTo(
-      firstPositionCurve1.dx,
-      firstPositionCurve1.dy,
-      secondPositionCurve1.dx,
-      secondPositionCurve1.dy,
+    // first curve: use absolute coordinates with quadraticBezierTo
+    // control point near (40, size.height), end at middle bottom
+    path.quadraticBezierTo(
+      40,                 // control.x (absolute)
+      size.height,        // control.y (absolute)
+      size.width / 2,     // end.x (absolute)
+      size.height,        // end.y (absolute)
     );
 
-    Offset firstPositionCurve2 = Offset(size.width - 40, size.height);
-    Offset secondPositionCurve2 = Offset(size.width, size.height - 40);
-
-    path.relativeQuadraticBezierTo(
-      firstPositionCurve2.dx,
-      firstPositionCurve2.dy,
-      secondPositionCurve2.dx,
-      secondPositionCurve2.dy,
+    // second curve: control near (size.width - 40, size.height), end up at (size.width, size.height - 40)
+    path.quadraticBezierTo(
+      size.width - 40,    // control.x (absolute)
+      size.height,        // control.y (absolute)
+      size.width,         // end.x (absolute)
+      size.height - 40,   // end.y (absolute)
     );
 
+    // line to top-right and close
     path.lineTo(size.width, 0);
-    path.close();   // optional but recommended
+    path.close();
 
     return path;
   }
 
+  // return false unless you really need to reclip every frame
   @override
-  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => true;
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => false;
 }

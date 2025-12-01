@@ -7,7 +7,8 @@ import 'brand_card.dart';
 
 class ABrandShowcase extends StatelessWidget {
   const ABrandShowcase({
-    super.key, required this.images,
+    super.key,
+    required this.images,
   });
 
   final List<String> images;
@@ -26,15 +27,11 @@ class ABrandShowcase extends StatelessWidget {
         children: [
           // brand with product count
           ABrandCard(showBorder: false),
+          SizedBox(height: ASizes.spaceBtwItems / 2),
 
           //
           Row(
               children: images.map((image) => buildBrandImage(dark, image)).toList()
-            // children: [
-            //   buildBrandImage(dark),
-            //   buildBrandImage(dark),
-            //   buildBrandImage(dark)
-            // ],
           )
         ],
       ),

@@ -1,3 +1,4 @@
+import 'package:e_commerce/utils/helpers/helperFunction.dart';
 import 'package:flutter/material.dart';
 import '../../../../../common/widgets/appbar/appbar.dart';
 import '../../../../../common/widgets/products/cart/cart_counter_icon.dart';
@@ -6,14 +7,12 @@ import '../../../../../utils/constants/texts.dart';
 
 class AHomeAppBar extends StatelessWidget {
   const AHomeAppBar({
-    super.key,
-    required this.dark,
+    super.key
   });
-
-  final bool dark;
 
   @override
   Widget build(BuildContext context) {
+    bool dark = AHelperFunctions.inDarkMode(context);
     return AAppBar(
 
       // title and subtitle

@@ -31,7 +31,7 @@ class AHomeCategories extends StatelessWidget {
             child: ListView.separated(
               separatorBuilder: (context, index) => SizedBox(width: ASizes.spaceBtwItems),
               scrollDirection: Axis.horizontal,
-              itemCount: 10, //item add
+              itemCount: 7, //item add
               itemBuilder: (context, index) {
                 return AVerticalImageText(
                   title: "Food",
