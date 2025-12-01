@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
-import '../../../utils/helpers/helperFunction.dart';
+import '../../../utils/helpers/helper_function.dart';
 
 class ACircularImage extends StatelessWidget {
   const ACircularImage(

@@ -4,7 +4,10 @@ import 'package:e_commerce/features/personalization/screens/profile/widgets/sett
 import 'package:e_commerce/features/personalization/screens/profile/widgets/user_profile_tile.dart';
 import 'package:e_commerce/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+
+import '../address/address.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -33,15 +36,18 @@ class ProfileScreen extends StatelessWidget {
                     icon: Iconsax.safe_home,
                     title:'My Addresses',
                     subtitle: 'Set shopping delivery addresses',
+                    onTap: () => Get.to(() => AddressScreen()),
                   ),
                   SettingMenuTile(icon: Iconsax.shopping_cart,
                     title: 'My Cart',
                     subtitle: 'Add, remove products and move to checkout',
+                    onTap: (){},
                   ),
                   SettingMenuTile(
                     icon: Iconsax.bag_tick,
                     title:'My Orders',
                     subtitle: 'In progress and Completed Orders',
+                    onTap: (){},
                   ),
                   SizedBox(height: ASizes.spaceBtwSections),
                   

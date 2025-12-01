@@ -1,4 +1,4 @@
-import 'package:e_commerce/utils/helpers/helperFunction.dart';
+import 'package:e_commerce/utils/helpers/helper_function.dart';
 import 'package:flutter/material.dart';
 import '../../../../../common/widgets/appbar/appbar.dart';
 import '../../../../../common/widgets/products/cart/cart_counter_icon.dart';
