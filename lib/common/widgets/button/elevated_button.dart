@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 
 class AElevatedButton extends StatelessWidget {
   const AElevatedButton({
-    super.key, required this.onPressed, required this.child,
+    super.key,
+    required this.onPressed,
+    required this.child,
   });
 
   final VoidCallback onPressed;
