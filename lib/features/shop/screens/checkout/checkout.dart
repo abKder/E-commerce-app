@@ -52,7 +52,10 @@ class CheckoutScreen extends StatelessWidget {
                     //payment section
                     ABillingPaymentSection(),
 
+                    //address section
                     ABillingAddressSection(),
+
+                    //
                   ],
                 ),
               )
