@@ -1,14 +1,16 @@
 import 'package:e_commerce/common/styles/padding.dart';
 import 'package:e_commerce/common/widgets/appbar/appbar.dart';
 import 'package:e_commerce/common/widgets/button/elevated_button.dart';
-import 'package:e_commerce/common/widgets/texts/product_price_text.dart';
+import 'package:e_commerce/features/shop/screens/cart/widgets/cart_items.dart';
 import 'package:e_commerce/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
-import '../../../../common/widgets/products/cart/cart_item.dart';
-import '../../../../common/widgets/products/cart/product_quantity_with_add_remove.dart';
+import 'package:get/get.dart';
+import '../checkout/checkout.dart';
 
 class CartScreen extends StatelessWidget {
-  const CartScreen({super.key});
+  const CartScreen({super.key
+  });
+
 
   @override
   Widget build(BuildContext context) {
@@ -20,41 +22,14 @@ class CartScreen extends StatelessWidget {
       //body
       body: Padding(
         padding: APadding.screenPadding,
-        child: ListView.separated(
-          separatorBuilder: (context, index) =>
-              SizedBox(height: ASizes.spaceBtwSections),
-          itemCount: 7,
-          itemBuilder: (context, index) {
-            return Column(
-              children: [
-
-                //cart item
-                ACartItem(),
-                SizedBox(height: ASizes.spaceBtwItems),
-
-                //price and counter button
-                Row(
-                  children: [
-                    SizedBox(width: 70.0),
-
-                    //quantity button
-                    AProductQuantityWithAddRemove(),
-                    Spacer(),
-
-                    //product price
-                    AProductPriceText(price: '700')
-                  ],
-                )
-              ],
-            );
-          },),
+        child: ACartItems(),
       ),
 
 
       //bottom navigation
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(ASizes.defaultSpace),
-        child: AElevatedButton( onPressed: (){},child: Text('Checkout  \$4900'),),
+        child: AElevatedButton( onPressed: () => Get.to(() => CheckoutScreen()),child: Text('Checkout  \$4900'),),
       ),
 
 
