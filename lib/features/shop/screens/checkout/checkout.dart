@@ -1,12 +1,17 @@
 import 'package:e_commerce/common/styles/padding.dart';
 import 'package:e_commerce/common/widgets/appbar/appbar.dart';
 import 'package:e_commerce/common/widgets/custom_shapes/clipper/rounded_container.dart';
+import 'package:e_commerce/common/widgets/screens/success_screen.dart';
 import 'package:e_commerce/features/shop/screens/cart/widgets/cart_items.dart';
 import 'package:e_commerce/features/shop/screens/checkout/widgets/billing_address_section.dart';
 import 'package:e_commerce/features/shop/screens/checkout/widgets/billing_amount_section.dart';
 import 'package:e_commerce/features/shop/screens/checkout/widgets/billing_payment_section.dart';
+import 'package:e_commerce/navigation_menu.dart';
+import 'package:e_commerce/utils/constants/images.dart';
 import 'package:e_commerce/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../../../../common/widgets/textfields/promo_code.dart';
 
@@ -55,7 +60,7 @@ class CheckoutScreen extends StatelessWidget {
                     //address section
                     ABillingAddressSection(),
 
-                    //
+                    
                   ],
                 ),
               )
@@ -63,6 +68,15 @@ class CheckoutScreen extends StatelessWidget {
           ),
         ),
       ),
+      //bottom navigation
+      bottomNavigationBar: Padding(
+          padding: EdgeInsetsGeometry.all(ASizes.defaultSpace),
+        child: ElevatedButton(
+            onPressed: () => Get.to(() => SuccessScreen(title: 'Payment Success!', subTitle: 'Your item will be shipping soon!', image: AImages.successfulPaymentIcon, onTap: () => Get.to(() => NavigationMenu()))),
+            child: Text('Checkout \$2360')
+        ),
+      ),
+      
     );
   }
 }
