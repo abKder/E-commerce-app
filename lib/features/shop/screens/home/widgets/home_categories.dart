@@ -1,9 +1,11 @@
 import 'package:e_commerce/utils/constants/images.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../../../../common/widgets/image_text/vertical_image_text.dart';
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/constants/texts.dart';
+import '../../sub_category/sub_gategory.dart';
 
 class AHomeCategories extends StatelessWidget {
   const AHomeCategories({
@@ -37,6 +39,7 @@ class AHomeCategories extends StatelessWidget {
                   title: "Food",
                   image: AImages.food,
                   textColor: AColors.white,
+                  onTap: () => Get.to(() => SubCategoryScreen()),
                 );
               },
             ),

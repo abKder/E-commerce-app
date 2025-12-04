@@ -32,6 +32,7 @@ class AImages {
   //product
   static const String product1 = "assets/products/product_1.jpg";
   static const String product2 = "assets/products/product_2.jpg";
+  static const String food_mango = "assets/products/food_mango.jpg";
 
   //brands
   static const String apple = "assets/brands/apple.jpg";
