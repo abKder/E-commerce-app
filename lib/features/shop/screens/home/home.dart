@@ -11,6 +11,7 @@ import 'package:get/get.dart';
 import '../../../../common/widgets/layouts/grid_layout.dart';
 import '../../../../common/widgets/textfields/search_bar.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
+import '../all_product/all_product.dart';
 
 
 class HomeScreen extends StatelessWidget {
@@ -66,7 +67,7 @@ class HomeScreen extends StatelessWidget {
                   const SizedBox(height: ASizes.spaceBtwSections),
 
                   //section heading
-                  ASectionHeading(title: 'Popular Products', onPressed: () {}),
+                  ASectionHeading(title: 'Popular Products', onPressed: () => Get.to(() => AllProductScreen())),
                   const SizedBox(height: ASizes.spaceBtwItems),
 
                   //vertical product card
