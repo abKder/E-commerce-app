@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
+import '../../../shop/screens/order/order.dart';
 import '../address/address.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -47,8 +48,7 @@ class ProfileScreen extends StatelessWidget {
                     icon: Iconsax.bag_tick,
                     title:'My Orders',
                     subtitle: 'In progress and Completed Orders',
-                    onTap: (){},
-                  ),
+                    onTap: () => Get.to(() => OrderScreen())),
                   SizedBox(height: ASizes.spaceBtwSections),
                   
                   

@@ -11,8 +11,6 @@ import 'package:e_commerce/utils/constants/images.dart';
 import 'package:e_commerce/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-
 import '../../../../common/widgets/textfields/promo_code.dart';
 
 class CheckoutScreen extends StatelessWidget {
