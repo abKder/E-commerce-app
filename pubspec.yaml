@@ -24,11 +24,18 @@ dependencies:
   iconsax: ^0.0.8
   carousel_slider: ^5.1.1
   readmore: ^3.0.0
+  connectivity_plus: ^7.0.0
 
 
   #backend state management
   get: ^4.7.2
   get_storage: ^2.1.1
+
+  #firebase_core:
+  firebase_core: ^4.2.1
+  firebase_auth: ^6.1.2
+  cloud_firestore: ^6.1.0
+  google_sign_in: ^7.2.0
 
 
 #--------------------------------------
