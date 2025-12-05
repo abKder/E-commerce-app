@@ -10,40 +10,45 @@ class ABrandCard extends StatelessWidget {
   const ABrandCard({
     super.key,
     this.showBorder = true,
+    this.onTap,
   });
 
   final bool showBorder;
+  final VoidCallback? onTap;
   @override
   Widget build(BuildContext context) {
-    return ARoundedContainer(
-      width: ASizes.brandCardWidth,
-        height: ASizes.brandCardHeight,
-        showBorder: true,
-        padding: EdgeInsets.all(ASizes.sm),
-        backgroundColor: Colors.transparent,
-        child: Row(
-          children: [
+    return GestureDetector(
+      onTap: onTap,
+      child: ARoundedContainer(
+          width: ASizes.brandCardWidth,
+          height: ASizes.brandCardHeight,
+          showBorder: true,
+          padding: EdgeInsets.all(ASizes.sm),
+          backgroundColor: Colors.transparent,
+          child: Row(
+            children: [
 
-            //brand image
-            Flexible(child: ARoundedImage(imageUrl: AImages.apple, backgroundColor: Colors.transparent)),
-            SizedBox(width: ASizes.spaceBtwItems / 2),
+              //brand image
+              Flexible(child: ARoundedImage(imageUrl: AImages.apple, backgroundColor: Colors.transparent)),
+              SizedBox(width: ASizes.spaceBtwItems / 2),
 
-            //brand name and verify icon
-            Expanded(
+              //brand name and verify icon
+              Expanded(
 
-                child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                ABrandTitleWithVerifyIcon(title: 'Apple', brandTextSize: TextSizes.large),
-                Text('100 products', style: Theme.of(context).textTheme.labelMedium, overflow: TextOverflow.ellipsis)
-              ],
-            )),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      ABrandTitleWithVerifyIcon(title: 'Apple', brandTextSize: TextSizes.large),
+                      Text('100 products', style: Theme.of(context).textTheme.labelMedium, overflow: TextOverflow.ellipsis)
+                    ],
+                  )),
 
 
 
-          ],
-        )
+            ],
+          )
+      ),
     );
   }
 }
