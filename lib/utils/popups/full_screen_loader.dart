@@ -5,7 +5,7 @@ import '../constants/colors.dart';
 import '../helpers/helper_function.dart';
 
 class AFullScreenLoader {
-  static void openLoadingDialog(String text, String animation) {
+  static void openLoadingDialog(String text) {
     showDialog(
         context: Get.overlayContext!,
         barrierDismissible: false,

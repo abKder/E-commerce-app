@@ -2,7 +2,7 @@ import 'package:e_commerce/utils/constants/colors.dart';
 import 'package:e_commerce/utils/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'features/authentication/screens/onBoarding/onBoarding.dart';
+import 'bindings/bindings.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: ATheme.lightTheme,
       darkTheme: ATheme.darkTheme,
+      initialBinding: ABindings(),
       home: Scaffold(
         backgroundColor: AColors.primary,
         body: Center(

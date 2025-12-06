@@ -1,5 +1,5 @@
 import 'package:e_commerce/features/authentication/screens/login/login.dart';
-import 'package:e_commerce/features/authentication/screens/onBoarding/onBoarding.dart';
+import 'package:e_commerce/features/authentication/screens/onBoarding/onboarding.dart';
 import 'package:e_commerce/utils/exceptions/firebase_auth_exceptions.dart';
 import 'package:e_commerce/utils/exceptions/firebase_exceptions.dart';
 import 'package:e_commerce/utils/exceptions/format_exceptions.dart';

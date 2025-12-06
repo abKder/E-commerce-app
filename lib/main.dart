@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'my_App.dart';
+import 'my_app.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async{

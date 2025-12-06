@@ -1,7 +1,9 @@
 import 'package:e_commerce/utils/helpers/helper_function.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/texts.dart';
+import '../../../controllers/signup/signup_controller.dart';
 
 class APrivacyPolicyCheckbox extends StatelessWidget {
   const APrivacyPolicyCheckbox({
@@ -12,9 +14,10 @@ class APrivacyPolicyCheckbox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dark = AHelperFunctions.inDarkMode(context);
+    final controller = SignupController.instance;
     return Row(
       children: [
-        Checkbox(value: true, onChanged: (value) {}),
+        Obx( () => Checkbox(value: controller.privacyPolicy.value, onChanged: (value) => controller.privacyPolicy.value = !controller.privacyPolicy.value)),
         RichText(
             text: TextSpan(
                 style: Theme.of(context).textTheme.bodyMedium,
