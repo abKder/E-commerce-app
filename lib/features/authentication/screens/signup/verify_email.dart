@@ -9,12 +9,16 @@ import 'package:get/get.dart';
 import '../../../../common/widgets/screens/success_screen.dart';
 import '../../../../utils/constants/images.dart';
 import '../../../../utils/constants/texts.dart';
+import '../../controllers/signup/verify_email_controller.dart';
 
 class VerifyEmailScreen extends StatelessWidget {
-  const VerifyEmailScreen({super.key});
+  const VerifyEmailScreen({super.key, this.email});
+
+  final String? email;
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(VerifyEmailController());
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -40,8 +44,7 @@ class VerifyEmailScreen extends StatelessWidget {
               SizedBox(height: ASizes.spaceBtwInputFields),
 
               //email
-              Text("abdulkader@gmail.com",
-                  style: Theme.of(context).textTheme.bodyMedium),
+              Text(email ?? '', style: Theme.of(context).textTheme.bodyMedium),
               SizedBox(height: ASizes.spaceBtwInputFields),
 
               //subtitle
@@ -55,18 +58,18 @@ class VerifyEmailScreen extends StatelessWidget {
               //continue button
               AElevatedButton(
                   onPressed: () => Get.to(() => SuccessScreen(
-                    title: ATexts.accountCreatedTitle,
-                    subTitle: ATexts.accountCreatedSubTitle,
-                    image: AImages.accountCreatedImage, 
-                    onTap: (){},
-                  )),
+                        title: ATexts.accountCreatedTitle,
+                        subTitle: ATexts.accountCreatedSubTitle,
+                        image: AImages.accountCreatedImage,
+                        onTap: () {},
+                      )),
                   child: Text(ATexts.AContinue)),
 
               //resend email
               SizedBox(
                   width: double.infinity,
                   child: TextButton(
-                      onPressed: () {}, child: Text(ATexts.resendEmail))),
+                      onPressed: () => controller.sendEmailVerification(), child: Text(ATexts.resendEmail))),
             ],
           ),
         ),
