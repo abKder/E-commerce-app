@@ -14,7 +14,6 @@ class SignupController extends GetxController {
 
 //variables
   final signupFormKey = GlobalKey<FormState>();
-  // final _authRepository = Get.put(AuthenticationRepository());
   RxBool isPasswordVisible = false.obs;
   RxBool privacyPolicy = false.obs;
 
@@ -41,9 +40,7 @@ class SignupController extends GetxController {
       //check privacy policy button
       if (!privacyPolicy.value) {
         AFullScreenLoader.stopLoading();
-        Get.snackbar('Error', 'Please accept the privacy policy',
-            messageText: Text(
-                'In order to create account, you must have to read and accept thr privacy policy and terms of Use.'));
+        Get.snackbar('Error', 'Please accept the privacy policy', messageText: Text('In order to create account, you must have to read and accept thr privacy policy and terms of Use.'));
         return;
       }
 
@@ -54,8 +51,8 @@ class SignupController extends GetxController {
       }
 
       //register user
-      UserCredential userCredential = await AuthenticationRepository.instance.registerUser(
-          email.text.trim(), password.text.trim());
+      UserCredential userCredential = await AuthenticationRepository.instance
+          .registerUser(email.text.trim(), password.text.trim());
 
       //create user model
       UserModel userModel = UserModel(
@@ -73,7 +70,9 @@ class SignupController extends GetxController {
       await userRepository.saveUserRecord(userModel);
 
       //success message
-      ASnackBarHelpers.successSnackBar(title: 'Congratulation!', message: 'Your account has been created! Verify email to continue');
+      ASnackBarHelpers.successSnackBar(
+          title: 'Congratulation!',
+          message: 'Your account has been created! Verify email to continue');
 
       //stop loading
       AFullScreenLoader.stopLoading();

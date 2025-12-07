@@ -63,7 +63,26 @@ class AuthenticationRepository extends GetxController {
       throw AFirebaseAuthException(e.code).message;
     } on FirebaseException catch (e) {
       throw AFirebaseException(e.code).message;
-    } on FormatException catch (e) {
+    } on FormatException catch (_) {
+      throw AFormatException();
+    } on PlatformException catch (e) {
+      throw APlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again';
+    }
+  }
+
+
+  //login user with email and password
+  Future<UserCredential> loginWithEmailAndPassword(String email, String password) async {
+    try {
+      UserCredential userCredential = await _auth.signInWithEmailAndPassword(email: email, password: password);
+      return userCredential;
+    } on FirebaseAuthException catch (e) {
+      throw AFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw AFirebaseException(e.code).message;
+    } on FormatException catch (_) {
       throw AFormatException();
     } on PlatformException catch (e) {
       throw APlatformException(e.code).message;
@@ -80,7 +99,25 @@ class AuthenticationRepository extends GetxController {
       throw AFirebaseAuthException(e.code).message;
     } on FirebaseException catch (e) {
       throw AFirebaseException(e.code).message;
-    } on FormatException catch (e) {
+    } on FormatException catch (_) {
+      throw AFormatException();
+    } on PlatformException catch (e) {
+      throw APlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again';
+    }
+  }
+
+//logout the user
+  Future<void> logout() async{
+    try {
+      await FirebaseAuth.instance.signOut();
+      Get.offAll(() => LoginScreen());
+    } on FirebaseAuthException catch (e) {
+      throw AFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw AFirebaseException(e.code).message;
+    } on FormatException catch (_) {
       throw AFormatException();
     } on PlatformException catch (e) {
       throw APlatformException(e.code).message;

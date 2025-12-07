@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:e_commerce/common/widgets/screens/success_screen.dart';
 import 'package:e_commerce/data/repositories/authentication_repository.dart';
 import 'package:e_commerce/utils/constants/images.dart';
@@ -30,7 +29,6 @@ class VerifyEmailController extends GetxController {
     }
   }
 
-
   //timer to automatically redirect on email verification
   void setTimerForAutoRedirect() {
     Timer.periodic(Duration(seconds: 1), (timer) async {
@@ -45,5 +43,21 @@ class VerifyEmailController extends GetxController {
             onTap: () => AuthenticationRepository.instance.screenRedirect()));
       }
     });
+  }
+
+  //manually check email is verified
+  Future<void> checkEmailVerificationStatus() async {
+    try {
+      final currentUser = FirebaseAuth.instance.currentUser;
+      if (currentUser != null && currentUser.emailVerified) {
+        Get.off(() => SuccessScreen(
+            title: ATexts.accountCreatedTitle,
+            subTitle: ATexts.accountCreatedSubTitle,
+            image: AImages.successfulPaymentIcon,
+            onTap: () => AuthenticationRepository.instance.screenRedirect()));
+      }
+    } catch (e) {
+      ASnackBarHelpers.errorSnackBar(title: 'Error', message: e.toString());
+    }
   }
 }

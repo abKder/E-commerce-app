@@ -1,12 +1,11 @@
 import 'package:e_commerce/common/styles/padding.dart';
 import 'package:e_commerce/common/widgets/button/elevated_button.dart';
-import 'package:e_commerce/features/authentication/screens/login/login.dart';
+import 'package:e_commerce/data/repositories/authentication_repository.dart';
 import 'package:e_commerce/utils/constants/sizes.dart';
 import 'package:e_commerce/utils/helpers/device_helpers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../common/widgets/screens/success_screen.dart';
 import '../../../../utils/constants/images.dart';
 import '../../../../utils/constants/texts.dart';
 import '../../controllers/signup/verify_email_controller.dart';
@@ -24,7 +23,7 @@ class VerifyEmailScreen extends StatelessWidget {
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
-              onPressed: () => Get.offAll(() => LoginScreen()),
+              onPressed: AuthenticationRepository.instance.logout,
               icon: Icon(CupertinoIcons.clear)),
         ],
       ),
@@ -57,19 +56,15 @@ class VerifyEmailScreen extends StatelessWidget {
 
               //continue button
               AElevatedButton(
-                  onPressed: () => Get.to(() => SuccessScreen(
-                        title: ATexts.accountCreatedTitle,
-                        subTitle: ATexts.accountCreatedSubTitle,
-                        image: AImages.accountCreatedImage,
-                        onTap: () {},
-                      )),
+                  onPressed: controller.checkEmailVerificationStatus,
                   child: Text(ATexts.AContinue)),
 
               //resend email
               SizedBox(
                   width: double.infinity,
                   child: TextButton(
-                      onPressed: () => controller.sendEmailVerification(), child: Text(ATexts.resendEmail))),
+                      onPressed: () => controller.sendEmailVerification,
+                      child: Text(ATexts.resendEmail))),
             ],
           ),
         ),
