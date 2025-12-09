@@ -1,8 +1,10 @@
 import 'package:e_commerce/common/styles/padding.dart';
 import 'package:e_commerce/common/widgets/button/elevated_button.dart';
+import 'package:e_commerce/features/authentication/controllers/forget_password/forget_password_controller.dart';
 import 'package:e_commerce/features/authentication/screens/forgot_password/reset_password.dart';
 import 'package:e_commerce/utils/constants/sizes.dart';
 import 'package:e_commerce/utils/constants/texts.dart';
+import 'package:e_commerce/utils/validatons/validation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -12,6 +14,7 @@ class ForgetPasswordScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ForgetPasswordController());
     return Scaffold(
         appBar: AppBar(),
         body: SingleChildScrollView(
@@ -34,15 +37,21 @@ class ForgetPasswordScreen extends StatelessWidget {
                 //form
                 Column(
                   children: [
-                    TextFormField(
-                      decoration: InputDecoration(
-                        labelText: ATexts.email,
-                        prefixIcon: Icon(Iconsax.direct_right),
-                      ),
-                    ),
+                    Form(
+                        key: controller.forgetPasswordFormKey,
+                        child: TextFormField(
+                          controller: controller.email,
+                          validator: (value) => AValidator.validateEmail(value),
+                          decoration: InputDecoration(
+                            labelText: ATexts.email,
+                            prefixIcon: Icon(Iconsax.direct_right),
+                          ),
+                        )),
                     SizedBox(height: ASizes.spaceBtwItems),
+
+                    //submit button
                     AElevatedButton(
-                        onPressed: () => Get.to(() => ResetPasswordScreen()),
+                        onPressed: controller.sendPasswordResetEmail,
                         child: Text(ATexts.submit)),
                   ],
                 )
