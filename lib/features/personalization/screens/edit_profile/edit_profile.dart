@@ -1,9 +1,12 @@
 import 'package:e_commerce/common/styles/padding.dart';
 import 'package:e_commerce/common/widgets/appbar/appbar.dart';
 import 'package:e_commerce/common/widgets/texts/section_heading.dart';
+import 'package:e_commerce/features/personalization/controllers/user_controller.dart';
+import 'package:e_commerce/features/personalization/screens/change_name/change_name.dart';
 import 'package:e_commerce/features/personalization/screens/edit_profile/widgets/user_profile_with_edit_icon.dart';
 import 'package:e_commerce/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class EditProfileScreen extends StatelessWidget {
@@ -11,6 +14,7 @@ class EditProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = UserController.instance;
     return Scaffold(
       appBar: AAppBar(
         showBackArrow: true,
@@ -34,8 +38,8 @@ class EditProfileScreen extends StatelessWidget {
               SizedBox(height: ASizes.spaceBtwItems),
 
               //account details
-              UserDetailRow( title: 'Name', value: 'Abdul Kader', onTap: (){}),
-              UserDetailRow( title: 'Username', value: 'abdulkader@gmail.com', onTap: (){}),
+              UserDetailRow( title: 'Name', value: controller.user.value.fullName, onTap: () => Get.to(() => ChangeNameScreen())),
+              UserDetailRow( title: 'Username', value: controller.user.value.email, onTap: (){}),
               SizedBox(height: ASizes.spaceBtwItems),
 
               //divider
@@ -47,9 +51,9 @@ class EditProfileScreen extends StatelessWidget {
               SizedBox(height: ASizes.spaceBtwItems),
 
               //profile setting
-              UserDetailRow( title: 'User ID', value: '2223510..365', onTap: (){}),
-              UserDetailRow( title: 'Email', value: 'abdulkader@gmail.com', onTap: (){}),
-              UserDetailRow( title: 'Phone Number', value: '01581030425', onTap: (){}),
+              UserDetailRow( title: 'User ID', value: controller.user.value.id, onTap: (){}),
+              UserDetailRow( title: 'Email', value: controller.user.value.email, onTap: (){}),
+              UserDetailRow( title: 'Phone Number', value: controller.user.value.phoneNumber, onTap: (){}),
               UserDetailRow( title: 'Gender', value: 'Male', onTap: (){}),
               SizedBox(height: ASizes.spaceBtwItems),
 
@@ -57,7 +61,8 @@ class EditProfileScreen extends StatelessWidget {
               Divider(),
               SizedBox(height: ASizes.spaceBtwItems),
 
-              TextButton(onPressed: (){}, child: Text('Close Account', style: TextStyle(color: Colors.red)))
+              //close account button
+              TextButton(onPressed: controller.deleteAccountWarningPopup, child: Text('Close Account', style: TextStyle(color: Colors.red)))
             ],
           ),
         ),
