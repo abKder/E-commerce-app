@@ -11,6 +11,7 @@ class UserProfileWithEditeIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = UserController.instance;
     return Stack(
       children: [
         //user profile logo
@@ -22,7 +23,7 @@ class UserProfileWithEditeIcon extends StatelessWidget {
             left: 0,
             right: 0,
             child: Center(
-              child: ACircularIcon(icon: Iconsax.edit),
+              child: ACircularIcon(icon: Iconsax.edit, onPressed: controller.updateUserProfilePicture),
             ))
       ],
     );

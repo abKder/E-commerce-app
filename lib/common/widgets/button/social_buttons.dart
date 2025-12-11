@@ -14,7 +14,7 @@ class ASocialButtons extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         //google
-        buildButton( AImages.googleIcon, (){}),
+        buildButton( AImages.googleIcon,(){}),
         SizedBox(width: ASizes.spaceBtwItems),
 
         //facebook

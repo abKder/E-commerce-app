@@ -12,6 +12,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthenticationRepository extends GetxController {
   static AuthenticationRepository get instance => Get.find();
@@ -163,12 +164,11 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
-  //
   Future<void> reAuthenticateUserWithEmailAndPassword(
       String email, String password) async {
     try {
       AuthCredential credential = EmailAuthProvider.credential(email: email, password: password);
-      await _auth.currentUser!.reauthenticateWithCredential(credential);
+      await currentUser!.reauthenticateWithCredential(credential);
     } on FirebaseAuthException catch (e) {
       throw AFirebaseAuthException(e.code).message;
     } on FirebaseException catch (e) {
