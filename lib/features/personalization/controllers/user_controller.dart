@@ -23,6 +23,7 @@ class UserController extends GetxController {
   final _userRepository = Get.put(UserRepository());
   Rx<UserModel> user = UserModel.empty().obs;
   RxBool profileLoading = false.obs;
+  RxBool isProfileUploading = false.obs;
 
   //reauthentication variable
   final email = TextEditingController();
@@ -132,8 +133,13 @@ class UserController extends GetxController {
     }
   }
 
+  //update user profile picture
   Future<void> updateUserProfilePicture() async {
     try {
+
+      //start loading
+      isProfileUploading.value = true;
+
       //pick image
       XFile? image = await ImagePicker().pickImage(
           source: ImageSource.gallery,
@@ -144,19 +150,23 @@ class UserController extends GetxController {
         return;
       }
 
-      //upload profile picture in cloudinary
+      //delete user current profile picture
+      if (user.value.publicId.isNotEmpty) {
+        await _userRepository.deleteProfilePicture(user.value.publicId);
+      }
 
+      //upload profile picture in cloudinary
       dio.Response response = await _userRepository.uploadImage(image);
 
       if (response.statusCode == 200) {
-
         //get data
         final data = response.data;
         final imageUrl = data['url'];
         final publicId = data['public_id'];
 
         //update profile picture from fire store
-        await _userRepository.updateSingleField({'profilePicture': imageUrl, 'publicId': publicId});
+        await _userRepository.updateSingleField(
+            {'profilePicture': imageUrl, 'publicId': publicId});
 
         //update profile picture from rx user
         user.value.profilePicture = imageUrl;
@@ -164,13 +174,16 @@ class UserController extends GetxController {
         user.refresh();
 
         //success message
-        ASnackBarHelpers.successSnackBar(title: 'Congratulation', message: 'Profile picture updated successfully');
-
+        ASnackBarHelpers.successSnackBar(
+            title: 'Congratulation',
+            message: 'Profile picture updated successfully');
       } else {
         throw 'Upload Failed: Status ${response.statusCode}, Response: ${response.data}';
       }
     } catch (e) {
       ASnackBarHelpers.errorSnackBar(title: 'Failed!', message: e.toString());
+    }finally{
+      isProfileUploading.value = false;
     }
   }
 }

@@ -1,3 +1,4 @@
+import 'package:e_commerce/common/widgets/shimmer/shimmer_effect.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../features/personalization/controllers/user_controller.dart';
@@ -16,6 +17,13 @@ class UserProfileLogo extends StatelessWidget {
     return Obx(
         (){
           bool isProfileAvailable = controller.user.value.profilePicture.isNotEmpty;
+
+          //loading state
+          if(controller.isProfileUploading.value){
+            return AShimmerEffect(width: 120.0, height: 120.0, radius: 120);
+          }
+
+
           return ACircularImage(
             image: isProfileAvailable ? controller.user.value.profilePicture : AImages.profile,
             height: 120.0,

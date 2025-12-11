@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:e_commerce/common/widgets/shimmer/shimmer_effect.dart';
 import 'package:flutter/material.dart';
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
@@ -42,8 +44,14 @@ class ACircularImage extends StatelessWidget {
           border: showBorder ? Border.all(color: borderColor, width: borderWidth) : null),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(100),
-        child: Image(fit: fit, image: isNetworkImage ? NetworkImage(image) : AssetImage(image)),
-      ),
+        child: isNetworkImage
+            ? CachedNetworkImage(
+          fit: fit,
+            color: overlayColor,
+            progressIndicatorBuilder: (context, url, progress) => AShimmerEffect(width: 55, height: 55),
+            errorWidget: (context, url, error) => Icon(Icons.error),
+            imageUrl: image)
+            : Image(fit: fit, image: AssetImage(image))),
     );
   }
 }

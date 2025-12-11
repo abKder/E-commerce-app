@@ -28,6 +28,8 @@ dependencies:
   shimmer: ^3.0.0
   image_picker: ^1.2.1
   dio: ^5.9.0
+  crypto: ^3.0.7
+  cached_network_image: ^3.4.1
 
 
   #backend state management

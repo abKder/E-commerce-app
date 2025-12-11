@@ -1,4 +1,6 @@
+import 'dart:convert';
 import 'dart:io';
+import 'package:crypto/crypto.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart' as dio;
@@ -13,6 +15,7 @@ import '../../../utils/exceptions/firebase_auth_exceptions.dart';
 import '../../../utils/exceptions/firebase_exceptions.dart';
 import '../../../utils/exceptions/format_exceptions.dart';
 import '../../../utils/exceptions/platform_exceptions.dart';
+
 class UserRepository extends GetxController {
   static UserRepository get instance => Get.find();
 
@@ -115,6 +118,29 @@ class UserRepository extends GetxController {
       throw 'Dio Error: ${e.message}, Response: ${e.response?.data}';
     } catch (e) {
       throw 'Something went wrong: $e';
+    }
+  }
+
+  //delete profile picture
+  Future<dio.Response> deleteProfilePicture(String publicId) async {
+    try {
+      String api = AApiUrls.deleteApi(AKeys.cloudName);
+      int timestamp = (DateTime.now().millisecondsSinceEpoch / 1000).round();
+      String signatureBase =
+          'public_id=$publicId&timestamp=$timestamp${AKeys.apiSecret}';
+      String signature = sha1.convert(utf8.encode(signatureBase)).toString();
+
+      dio.FormData formData = dio.FormData.fromMap({
+        'public_id': publicId,
+        'api_key': AKeys.apiKey,
+        'timestamp': timestamp,
+        'signature': signature,
+      });
+
+      dio.Response response = await dio.Dio().post(api, data: formData);
+      return response;
+    } catch (e) {
+      throw 'Something went wrong. Please try again';
     }
   }
 }
