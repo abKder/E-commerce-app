@@ -40,7 +40,7 @@ class AProductCardHorizontal extends StatelessWidget {
                 SizedBox(
                     width: 120,
                     height: 120,
-                    child: ARoundedImage(imageUrl: AImages.food_mango)),
+                    child: ARoundedImage(imageUrl: AImages.F_food_mango)),
 
 
                 //discount tag

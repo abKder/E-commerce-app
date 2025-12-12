@@ -1,4 +1,6 @@
-import 'package:e_commerce/utils/constants/images.dart';
+import 'package:e_commerce/common/widgets/shimmer/category_shimmer.dart';
+import 'package:e_commerce/features/shop/controllers/category/category_controller.dart';
+import 'package:e_commerce/features/shop/models/category_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../../common/widgets/image_text/vertical_image_text.dart';
@@ -14,6 +16,7 @@ class AHomeCategories extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(CategoryController());
     return Padding(
       padding: const EdgeInsets.only(left: ASizes.spaceBtwSections),
       child: Column(
@@ -28,21 +31,39 @@ class AHomeCategories extends StatelessWidget {
           SizedBox(height: ASizes.spaceBtwItems),
 
           //Categories list
-          SizedBox(
-            height: 80,
-            child: ListView.separated(
-              separatorBuilder: (context, index) => SizedBox(width: ASizes.spaceBtwItems),
-              scrollDirection: Axis.horizontal,
-              itemCount: 7, //item add
-              itemBuilder: (context, index) {
-                return AVerticalImageText(
-                  title: "Food",
-                  image: AImages.food,
-                  textColor: AColors.white,
-                  onTap: () => Get.to(() => SubCategoryScreen()),
+          Obx(
+              (){
+                final categories = controller.featuredCategories;
+
+                //loading category
+                if(controller.isCategoriesLoading.value){
+                  return ACategoryShimmer(itemCount: 7);
+                }
+
+                //empty category
+                if(categories.isEmpty){
+                  return Text('Categories not found');
+                }
+
+                //data found
+                return SizedBox(
+                  height: 80,
+                  child: ListView.separated(
+                    separatorBuilder: (context, index) => SizedBox(width: ASizes.spaceBtwItems),
+                    scrollDirection: Axis.horizontal,
+                    itemCount: categories.length, //item add
+                    itemBuilder: (context, index) {
+                      CategoryModel category = categories[index];
+                      return AVerticalImageText(
+                        title: category.name,
+                        image: category.image,
+                        textColor: AColors.white,
+                        onTap: () => Get.to(() => SubCategoryScreen()),
+                      );
+                    },
+                  ),
                 );
-              },
-            ),
+              }
           )
         ],
       ),

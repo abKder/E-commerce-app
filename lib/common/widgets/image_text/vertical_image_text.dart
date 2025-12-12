@@ -1,3 +1,4 @@
+import 'package:e_commerce/common/widgets/images/circular_image.dart';
 import 'package:e_commerce/utils/helpers/helper_function.dart';
 import 'package:flutter/material.dart';
 import '../../../utils/constants/colors.dart';
@@ -27,14 +28,11 @@ class AVerticalImageText extends StatelessWidget {
       child: Column(
         children: [
           //circular image
-          ACircularContainer(
-            height: 56,
-            width: 56,
-            backgroundColor:
-                backgroundColor ?? (dark ? AColors.dark : AColors.light),
-            padding: EdgeInsets.all(ASizes.sm),
-            child: Image(image: AssetImage(image), fit: BoxFit.cover),
-          ),
+          ACircularImage(
+              height: 56,
+              width: 56,
+              image: image,
+              isNetworkImage: image.startsWith('http')),
           SizedBox(height: ASizes.spaceBtwItems / 2),
 
           //title

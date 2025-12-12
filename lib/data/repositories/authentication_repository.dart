@@ -1,4 +1,6 @@
+import 'package:e_commerce/data/repositories/category/category_repository.dart';
 import 'package:e_commerce/data/repositories/user/user_repository.dart';
+import 'package:e_commerce/dummy_data.dart';
 import 'package:e_commerce/features/authentication/screens/login/login.dart';
 import 'package:e_commerce/features/authentication/screens/onBoarding/onboarding.dart';
 import 'package:e_commerce/features/authentication/screens/signup/verify_email.dart';
@@ -13,7 +15,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthenticationRepository extends GetxController {
   static AuthenticationRepository get instance => Get.find();
