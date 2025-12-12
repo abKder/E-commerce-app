@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:e_commerce/data/services/cloudinary_services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -32,7 +31,7 @@ class UserRepository extends GetxController {
       throw AFirebaseAuthException(e.code).message;
     } on FirebaseException catch (e) {
       throw AFirebaseException(e.code).message;
-    } on FormatException catch (e) {
+    } on FormatException catch (_) {
       throw AFormatException();
     } on PlatformException catch (e) {
       throw APlatformException(e.code).message;
@@ -58,7 +57,7 @@ class UserRepository extends GetxController {
       throw AFirebaseAuthException(e.code).message;
     } on FirebaseException catch (e) {
       throw AFirebaseException(e.code).message;
-    } on FormatException catch (e) {
+    } on FormatException catch (_) {
       throw AFormatException();
     } on PlatformException catch (e) {
       throw APlatformException(e.code).message;
@@ -103,7 +102,8 @@ class UserRepository extends GetxController {
   //upload user image
   Future<dio.Response> uploadImage(XFile image) async {
     try {
-     dio.Response response = await _cloudinaryServices.uploadImage(image as File, AKeys.profileFolder);
+      dio.Response response =
+          await _cloudinaryServices.uploadImage(image, AKeys.profileFolder);
       return response;
     } on dio.DioException catch (e) {
       throw 'Dio Error: ${e.message}, Response: ${e.response?.data}';
@@ -115,7 +115,7 @@ class UserRepository extends GetxController {
   //delete profile picture
   Future<dio.Response> deleteProfilePicture(String publicId) async {
     try {
-    dio.Response response = await _cloudinaryServices.deleteImage(publicId);
+      dio.Response response = await _cloudinaryServices.deleteImage(publicId);
       return response;
     } catch (e) {
       throw 'Something went wrong. Please try again';

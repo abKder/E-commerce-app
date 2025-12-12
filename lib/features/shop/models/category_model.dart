@@ -6,6 +6,7 @@ class CategoryModel{
   String image;
   String parentId;
   bool isFeatured;
+  List<CategoryModel> subCategory;
 
   CategoryModel({
     required this.id,
@@ -13,11 +14,13 @@ class CategoryModel{
     required this.image,
     required this.isFeatured,
     this.parentId = '',
+    required this.subCategory
+
   });
 
 
   /// Empty Helper Function for Model
-  static CategoryModel empty() => CategoryModel(id: '', name: '', image: '', isFeatured: false);
+  static CategoryModel empty() => CategoryModel(id: '', name: '', image: '', isFeatured: false, subCategory: []);
 
   /// Convert model to Json structure so that we can store data in Firebase
   Map<String, dynamic> toJson(){
@@ -40,7 +43,8 @@ class CategoryModel{
           name: data['Name'] ?? '',
           image: data['Image'] ?? '',
           parentId: data['ParentId'] ?? '',
-          isFeatured: data['IsFeatured'] ?? false
+          isFeatured: data['IsFeatured'] ?? false,
+          subCategory:  data['subCategory']?? []
       );
     }else{
       return CategoryModel.empty();

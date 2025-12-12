@@ -8,17 +8,17 @@ import '../../../utils/helpers/helper_function.dart';
 class ACircularImage extends StatelessWidget {
   const ACircularImage(
       {super.key,
-        this.width = 56,
-        this.height = 56,
-        this.overlayColor,
-        this.backgroundColor,
-        required this.image,
-        this.fit = BoxFit.cover,
-        this.padding = ASizes.sm,
-        this.isNetworkImage = false,
-        this.showBorder = false,
-        this.borderColor = AColors.primary,
-        this.borderWidth = 1.0});
+      this.width = 56,
+      this.height = 56,
+      this.overlayColor,
+      this.backgroundColor,
+      required this.image,
+      this.fit = BoxFit.cover,
+      this.padding = ASizes.sm,
+      this.isNetworkImage = false,
+      this.showBorder = false,
+      this.borderColor = AColors.primary,
+      this.borderWidth = 1.0});
 
   final BoxFit? fit;
   final String image;
@@ -41,17 +41,22 @@ class ACircularImage extends StatelessWidget {
       decoration: BoxDecoration(
           color: backgroundColor ?? (dark ? AColors.dark : AColors.light),
           borderRadius: BorderRadius.circular(100),
-          border: showBorder ? Border.all(color: borderColor, width: borderWidth) : null),
+          border: showBorder
+              ? Border.all(color: borderColor, width: borderWidth)
+              : null),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(100),
-        child: isNetworkImage
-            ? CachedNetworkImage(
-          fit: fit,
-            color: overlayColor,
-            progressIndicatorBuilder: (context, url, progress) => AShimmerEffect(width: 55, height: 55),
-            errorWidget: (context, url, error) => Icon(Icons.error),
-            imageUrl: image)
-            : Image(fit: fit, image: AssetImage(image))),
+          borderRadius: BorderRadius.circular(100),
+          child: isNetworkImage
+              ? CachedNetworkImage(
+                  fit: fit,
+                  color: overlayColor,
+                  progressIndicatorBuilder: (context, url, progress) =>
+                      AShimmerEffect(width: 55, height: 55),
+                  errorWidget: (context, url, error) => Icon(Icons.error),
+                  imageUrl: image)
+              : image.isEmpty
+                  ? Icon(Icons.error, color: borderColor)
+                  : Image(fit: fit, image: AssetImage(image))),
     );
   }
 }

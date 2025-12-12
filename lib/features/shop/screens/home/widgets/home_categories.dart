@@ -37,7 +37,7 @@ class AHomeCategories extends StatelessWidget {
 
                 //loading category
                 if(controller.isCategoriesLoading.value){
-                  return ACategoryShimmer(itemCount: 7);
+                  return ACategoryShimmer();
                 }
 
                 //empty category

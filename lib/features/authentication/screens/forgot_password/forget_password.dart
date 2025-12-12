@@ -1,7 +1,6 @@
 import 'package:e_commerce/common/styles/padding.dart';
 import 'package:e_commerce/common/widgets/button/elevated_button.dart';
 import 'package:e_commerce/features/authentication/controllers/forget_password/forget_password_controller.dart';
-import 'package:e_commerce/features/authentication/screens/forgot_password/reset_password.dart';
 import 'package:e_commerce/utils/constants/sizes.dart';
 import 'package:e_commerce/utils/constants/texts.dart';
 import 'package:e_commerce/utils/validatons/validation.dart';

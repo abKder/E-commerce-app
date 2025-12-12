@@ -54,56 +54,56 @@ class AImages {
   //food
   static const String product1 = "assets/products/product_1.jpg";
   static const String product2 = "assets/products/product_2.jpg";
-  static const String F_food_mango = "assets/products/food_mango.jpg";
-  static const String F_alu = "assets/products/F_alu.jpg";
-  static const String F_applefood = "assets/products/F_apple.jpg";
-  static const String F_breakfast = "assets/products/F_breakfast.jpg";
-  static const String F_cokolate = "assets/products/F_Cokolate.jpg";
-  static const String F_desserte = "assets/products/F_dessert.jpg";
-  static const String F_fishdessert = "assets/products/F_fish-vegetables.jpg";
-  static const String F_lici = "assets/products/F_lici.jpg";
-  static const String F_mango = "assets/products/F_mango.jpg";
-  static const String F_vajitable = "assets/products/F_mango.jpg";
-  static const String F_wowfood = "assets/products/F_wowfood.jpg";
+  static const String fFoodMango = "assets/products/food_mango.jpg";
+  static const String fAlu = "assets/products/F_alu.jpg";
+  static const String fAppleFood = "assets/products/F_apple.jpg";
+  static const String fBreakfast = "assets/products/F_breakfast.jpg";
+  static const String fCokolate = "assets/products/F_Cokolate.jpg";
+  static const String fDessert = "assets/products/F_dessert.jpg";
+  static const String fFishDessert = "assets/products/F_fish-vegetables.jpg";
+  static const String fLici = "assets/products/F_lici.jpg";
+  static const String fMango = "assets/products/F_mango.jpg";
+  static const String fVajitable = "assets/products/F_mango.jpg";
+  static const String fWowFood = "assets/products/F_wowfood.jpg";
 
 // Kitchen utils
-  static const String Kitchen_item_1 = "assets/products/Kitchen_item.jpg";
-  static const String Kitchen_item_2 = "assets/products/Kitchen_item_2.jpg";
-  static const String Kitchen_item_3 = "assets/products/Kitchen_item_3.jpg";
-  static const String Kitchen_item_4 = "assets/products/Kitchen_item_4.jpg";
-  static const String Kitchen_item_5 = "assets/products/Kitchen_item_5.jpg";
+  static const String kitchenItem1 = "assets/products/Kitchen_item.jpg";
+  static const String kitchenItem2 = "assets/products/Kitchen_item_2.jpg";
+  static const String kitchenItem3 = "assets/products/Kitchen_item_3.jpg";
+  static const String kitchenItem4 = "assets/products/Kitchen_item_4.jpg";
+  static const String kitchenItem5 = "assets/products/Kitchen_item_5.jpg";
 
 // fashion
-  static const String Fashion_pant = "assets/products/Fashion_pant.jpg";
+  static const String fashionPant = "assets/products/Fashion_pant.jpg";
 
 // skin care
-  static const String Skin_body = "assets/products/Skin_body.jpg";
-  static const String Skin_clinic = "assets/products/Skin_Clinic.jpg";
-  static const String Skin_fresh = "assets/products/Skin_fresh.jpg";
-  static const String Skin_hudabeauty = "assets/products/Skin_hudabeauty.jpg";
-  static const String Skin_nivea = "assets/products/Skin_nivea.jpg";
-  static const String Skin_olay = "assets/products/Skin_olay.jpg";
-  static const String Skin_wow = "assets/products/Skin_wow.jpg";
+  static const String skinBody = "assets/products/Skin_body.jpg";
+  static const String skinClinic = "assets/products/Skin_Clinic.jpg";
+  static const String skinFresh = "assets/products/Skin_fresh.jpg";
+  static const String skinBeauty = "assets/products/Skin_hudabeauty.jpg";
+  static const String skinNivea = "assets/products/Skin_nivea.jpg";
+  static const String skinOlay = "assets/products/Skin_olay.jpg";
+  static const String skinWow = "assets/products/Skin_wow.jpg";
 
 // electronics
-  static const String E_camera = "assets/products/E_camera.jpg";
-  static const String E_fan = "assets/products/E_fan.jpg";
-  static const String E_headphone = "assets/products/E_headphone.jpg";
-  static const String E_keyboard = "assets/products/E_keyboard.jpg";
-  static const String E_laptop = "assets/products/E_laptop.jpg";
-  static const String E_phone = "assets/products/E_phone.jpg";
-  static const String E_tab = "assets/products/E_tab.jpg";
-  static const String E_watch = "assets/products/E_Watch.jpg";
-  static const String E_analockWatch = "assets/products/Electronic_analok_watch.jpg";
+  static const String eCamera = "assets/products/E_camera.jpg";
+  static const String eFan = "assets/products/E_fan.jpg";
+  static const String eHeadphone = "assets/products/E_headphone.jpg";
+  static const String eKeyboard = "assets/products/E_keyboard.jpg";
+  static const String eLaptop = "assets/products/E_laptop.jpg";
+  static const String ePhone = "assets/products/E_phone.jpg";
+  static const String eTab = "assets/products/E_tab.jpg";
+  static const String eWatch = "assets/products/E_Watch.jpg";
+  static const String eAnalogWatch = "assets/products/Electronic_analok_watch.jpg";
 
 // stationary
-  static const String Stationary_color_pen = "assets/products/Stationary_color_pan.jpg";
-  static const String Stationary_daba = "assets/products/Stationary_daba.jpg";
-  static const String Stationary_kokbat = "assets/products/Stationary_daba.jpg";
-  static const String Stationary_pen = "assets/products/Stationary_daba.jpg";
+  static const String stationaryColorPen = "assets/products/Stationary_color_pan.jpg";
+  static const String stationaryDaba = "assets/products/Stationary_daba.jpg";
+  static const String stationaryKokbat = "assets/products/Stationary_daba.jpg";
+  static const String stationaryPen = "assets/products/Stationary_daba.jpg";
 
 //toy
-  static const String Toy_car = "assets/products/Toy_car.jpg";
-  static const String Toy_toy = "assets/products/Toy_toy.jpg";
+  static const String toyCar = "assets/products/Toy_car.jpg";
+  static const String toyToy = "assets/products/Toy_toy.jpg";
 
 }

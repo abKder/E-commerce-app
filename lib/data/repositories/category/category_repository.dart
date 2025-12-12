@@ -1,8 +1,8 @@
-import 'dart:io';
+// import 'dart:io'; // Removed for Web compatibility
+import 'package:image_picker/image_picker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_commerce/features/shop/models/category_model.dart';
 import 'package:e_commerce/utils/constants/keys.dart';
-import 'package:e_commerce/utils/helpers/helper_function.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import '../../../utils/exceptions/firebase_exceptions.dart';
@@ -18,14 +18,17 @@ class CategoryRepository extends GetxController {
   final _db = FirebaseFirestore.instance;
   final _cloudinaryServices = Get.put(CloudinaryServices());
 
+  @override
+  void onInit() {
+    // uploadDummyData(ADummyData.Categories);
+    super.onInit();
+  }
+
   //category upload
   Future<void> uploadCategories(List<CategoryModel> categories) async {
-    bool hasError = false;
-    String errorMessage = '';
-
-    for (final category in categories) {
-      try {
-        // Skip upload if image is already a network URL (assuming http/https)
+    try {
+      for (var category in categories) {
+        // Skip if already a network URL
         if (category.image.startsWith('http')) {
           await _db
               .collection(AKeys.categoryCollection)
@@ -34,40 +37,32 @@ class CategoryRepository extends GetxController {
           continue;
         }
 
-        final file = await AHelperFunctions.assetToFile(category.image);
-        final response =
-            await _cloudinaryServices.uploadImage(file, AKeys.categoryFolder);
+        // Web-compatible: Load asset bytes
+        final byteData = await rootBundle.load(category.image);
+        final bytes = byteData.buffer.asUint8List();
+        final image = XFile.fromData(bytes,
+            name: category.image.split('/').last); // Create XFile from bytes
+
+        dio.Response response =
+            await _cloudinaryServices.uploadImage(image, AKeys.categoryFolder);
 
         if (response.statusCode == 200) {
           category.image = response.data['url'];
-          await _db
-              .collection(AKeys.categoryCollection)
-              .doc(category.id)
-              .set(category.toJson());
-        } else {
-          hasError = true;
-          errorMessage =
-              'Failed to upload ${category.name}. Status: ${response.statusCode}';
         }
-      } on FirebaseException catch (e) {
-        hasError = true;
-        errorMessage = AFirebaseException(e.code).message;
-      } on FormatException catch (_) {
-        hasError = true;
-        errorMessage = AFormatException().message;
-      } on PlatformException catch (e) {
-        hasError = true;
-        errorMessage = APlatformException(e.code).message;
-      } catch (e) {
-        hasError = true;
-        errorMessage = e.toString();
-      }
-    }
 
-    if (hasError) {
-      throw errorMessage.isNotEmpty
-          ? errorMessage
-          : 'One or more categories failed to upload.';
+        await _db
+            .collection(AKeys.categoryCollection)
+            .doc(category.id)
+            .set(category.toJson());
+      }
+    } on FirebaseException catch (e) {
+      throw AFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw AFormatException();
+    } on PlatformException catch (e) {
+      throw APlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again. Details: $e';
     }
   }
 
