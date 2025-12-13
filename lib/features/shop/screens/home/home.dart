@@ -4,7 +4,6 @@ import 'package:e_commerce/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:e_commerce/features/shop/screens/home/widgets/home_categories.dart';
 import 'package:e_commerce/common/widgets/custom_shapes/clipper/primary_header_container.dart';
 import 'package:e_commerce/features/shop/screens/home/widgets/promo_slider.dart';
-import 'package:e_commerce/utils/constants/images.dart';
 import 'package:e_commerce/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -57,13 +56,7 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   //banner
-                  APromoSlider(
-                    banners: [
-                      AImages.banner1,
-                      AImages.banner2,
-                      AImages.banner3
-                    ],
-                  ),
+                  APromoSlider(),
                   const SizedBox(height: ASizes.spaceBtwSections),
 
                   //section heading

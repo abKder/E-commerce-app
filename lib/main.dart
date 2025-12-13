@@ -20,7 +20,6 @@ Future<void> main() async{
 //firebase start here
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform).then((value) {
     Get.put(AuthenticationRepository());
-    // Get.put(CategoryRepository()).uploadCategories(ADummyData.categories);
   },);
 
   //portrait up the device

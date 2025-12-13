@@ -88,3 +88,10 @@ flutter:
           weight: 600
         - asset: assets/fonts/Nunito-Bold.ttf
           weight: 800
+
+flutter_native_splash:
+  color: "#0857A0"
+  image: assets/logos/logo.png
+  android_12:
+    image: assets/logos/logo.png
+    icon_background_color: "#0857A0"

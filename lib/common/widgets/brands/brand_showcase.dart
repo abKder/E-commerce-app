@@ -1,3 +1,4 @@
+import 'package:e_commerce/features/shop/models/brand_model.dart';
 import 'package:e_commerce/utils/helpers/helper_function.dart';
 import 'package:flutter/material.dart';
 import '../../../utils/constants/colors.dart';
@@ -26,7 +27,7 @@ class ABrandShowcase extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // brand with product count
-          ABrandCard(showBorder: false),
+          ABrandCard(showBorder: false, brand: BrandModel.empty()),
           SizedBox(height: ASizes.spaceBtwItems / 2),
 
           //

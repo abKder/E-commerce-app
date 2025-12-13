@@ -30,30 +30,22 @@ class CategoryRepository extends GetxController {
       for (var category in categories) {
         // Skip if already a network URL
         if (category.image.startsWith('http')) {
-          await _db
-              .collection(AKeys.categoryCollection)
-              .doc(category.id)
-              .set(category.toJson());
+          await _db.collection(AKeys.categoryCollection).doc(category.id).set(category.toJson());
           continue;
         }
 
         // Web-compatible: Load asset bytes
         final byteData = await rootBundle.load(category.image);
         final bytes = byteData.buffer.asUint8List();
-        final image = XFile.fromData(bytes,
-            name: category.image.split('/').last); // Create XFile from bytes
+        final image = XFile.fromData(bytes, name: category.image.split('/').last); // Create XFile from bytes
 
-        dio.Response response =
-            await _cloudinaryServices.uploadImage(image, AKeys.categoryFolder);
+        dio.Response response = await _cloudinaryServices.uploadImage(image, AKeys.categoryFolder);
 
         if (response.statusCode == 200) {
           category.image = response.data['url'];
         }
 
-        await _db
-            .collection(AKeys.categoryCollection)
-            .doc(category.id)
-            .set(category.toJson());
+        await _db.collection(AKeys.categoryCollection).doc(category.id).set(category.toJson());
       }
     } on FirebaseException catch (e) {
       throw AFirebaseException(e.code).message;

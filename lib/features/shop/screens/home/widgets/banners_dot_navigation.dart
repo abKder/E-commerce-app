@@ -1,5 +1,6 @@
+import 'package:e_commerce/features/shop/controllers/banner/banner_controller.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 
@@ -13,9 +14,10 @@ class BannerDotNavigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = HomeController.instance;
+    final bannerController = Get.put(BannerController());
     return Obx(
       () =>  SmoothPageIndicator(
-        count: 3,
+        count: bannerController.banners.length,
         effect: ExpandingDotsEffect(
           dotHeight: 6.0,
         ), controller: PageController(initialPage: controller.currentIndex.value),

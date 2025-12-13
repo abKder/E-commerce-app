@@ -1,5 +1,6 @@
 import 'package:e_commerce/common/styles/padding.dart';
 import 'package:e_commerce/common/widgets/button/elevated_button.dart';
+import 'package:e_commerce/features/shop/screens/order/order.dart';
 import 'package:e_commerce/features/shop/screens/product_details/widgets/bottom_add_to_cart.dart';
 import 'package:e_commerce/features/shop/screens/product_details/widgets/product_attribute.dart';
 import 'package:e_commerce/features/shop/screens/product_details/widgets/product_meta_data.dart';
@@ -7,9 +8,11 @@ import 'package:e_commerce/features/shop/screens/product_details/widgets/product
 import 'package:e_commerce/utils/constants/sizes.dart';
 import 'package:e_commerce/utils/helpers/helper_function.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:readmore/readmore.dart';
 
 import '../../../../common/widgets/texts/section_heading.dart';
+import '../checkout/checkout.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
   const ProductDetailsScreen({super.key});
@@ -40,7 +43,7 @@ class ProductDetailsScreen extends StatelessWidget {
                  SizedBox(height: ASizes.spaceBtwSections),
 
                  //checkout button
-                 AElevatedButton(onPressed: (){}, child: Text('Checkout')),
+                 AElevatedButton(onPressed: () => Get.to(() => CheckoutScreen()), child: Text('Checkout')),
                  SizedBox(height: ASizes.spaceBtwSections),
 
                  //description

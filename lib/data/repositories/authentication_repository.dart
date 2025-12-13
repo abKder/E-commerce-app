@@ -29,7 +29,6 @@ class AuthenticationRepository extends GetxController {
 
     //redirect to the right screen
     screenRedirect();
-    // Get.put(CategoryRepository()).uploadCategories(ADummyData.categories);
   }
 
   //function to redirect to the right screen

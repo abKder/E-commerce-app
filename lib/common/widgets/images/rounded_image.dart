@@ -1,4 +1,5 @@
-import 'package:flutter/cupertino.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/material.dart';
 import '../../../utils/constants/sizes.dart';
 
 class ARoundedImage extends StatelessWidget {
@@ -12,7 +13,7 @@ class ARoundedImage extends StatelessWidget {
     this.backgroundColor,
     this.fit = BoxFit.contain,
     this.padding,
-    this.inNetworkImage = false,
+    this.isNetworkImage = false,
     this.onTap,
     this.borderRadius = ASizes.md,
   });
@@ -24,7 +25,7 @@ class ARoundedImage extends StatelessWidget {
   final Color? backgroundColor;
   final BoxFit? fit;
   final EdgeInsetsGeometry? padding;
-  final bool inNetworkImage;
+  final bool isNetworkImage;
   final VoidCallback? onTap;
   final double borderRadius;
 
@@ -45,11 +46,15 @@ class ARoundedImage extends StatelessWidget {
         ),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(borderRadius),
-          child: Image(
-              image: inNetworkImage
-                  ? NetworkImage(imageUrl)
-                  : AssetImage(imageUrl),
-              fit: fit),
+          child: imageUrl.startsWith('http')
+              ? CachedNetworkImage(
+                  imageUrl: imageUrl,
+                  fit: fit,
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                  placeholder: (context, url) =>
+                      const Center(child: CircularProgressIndicator()),
+                )
+              : Image(image: AssetImage(imageUrl), fit: fit),
         ),
       ),
     );

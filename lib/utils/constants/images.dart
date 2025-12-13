@@ -29,6 +29,9 @@ class AImages {
   static const String banner1 = 'assets/banners/FlashSale_banner.png';
   static const String banner2 = "assets/banners/Electronics_banner.png";
   static const String banner3 = "assets/banners/HomeAppliance_banner.png";
+  static const String banner4 = "assets/banners/banner5.jpg";
+  static const String banner5 = "assets/banners/banner5.jpg";
+
 
   //brands
   static const String apple = "assets/brands/apple.jpg";
