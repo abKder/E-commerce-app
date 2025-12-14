@@ -15,11 +15,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: ATheme.lightTheme,
       darkTheme: ATheme.darkTheme,
-
       getPages: AAppRoutes.screens,
-
-
-
       initialBinding: ABindings(),
       home: Scaffold(
         backgroundColor: AColors.primary,
