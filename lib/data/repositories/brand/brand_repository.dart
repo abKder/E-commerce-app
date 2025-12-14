@@ -10,9 +10,8 @@ import '../../../utils/exceptions/format_exceptions.dart';
 import '../../../utils/exceptions/platform_exceptions.dart';
 import '../../services/cloudinary_services.dart';
 
-class BrandRepository extends GetxController{
+class BrandRepository extends GetxController {
   static BrandRepository get instance => Get.find();
-
 
   //variable
   final _db = FirebaseFirestore.instance;
@@ -31,9 +30,11 @@ class BrandRepository extends GetxController{
 // Web-compatible: Load asset bytes
         final byteData = await rootBundle.load(brand.image);
         final bytes = byteData.buffer.asUint8List();
-        final image = XFile.fromData(bytes, name: brand.image.split('/').last); // Create XFile from bytes
+        final image = XFile.fromData(bytes,
+            name: brand.image.split('/').last); // Create XFile from bytes
 
-        dio.Response response = await _cloudinaryServices.uploadImage(image, AKeys.brandsFolder);
+        dio.Response response =
+            await _cloudinaryServices.uploadImage(image, AKeys.brandsFolder);
 
         if (response.statusCode == 200) {
           brand.image = response.data['url'];
@@ -53,21 +54,94 @@ class BrandRepository extends GetxController{
   }
 
 //fetch brand
-  Future<List<BrandModel>> fetchActiveBrands() async{
-    try{
+  Future<List<BrandModel>> fetchActiveBrands() async {
+    try {
+      final query = await _db
+          .collection("Brands")
+          .where('isFeatured', isEqualTo: true)
+          .get();
 
-      final query = await _db.collection("Brands").where('isFeatured', isEqualTo: true).get();
-
-      if(query.docs.isNotEmpty){
-        List<BrandModel> brands = query.docs.map((document) => BrandModel.fromSnapshot(document)).toList();
+      if (query.docs.isNotEmpty) {
+        List<BrandModel> brands = query.docs
+            .map((document) => BrandModel.fromSnapshot(document))
+            .toList();
         return brands;
       }
       return [];
-
-    }  on FirebaseException catch (e) {
+    } on FirebaseException catch (e) {
       throw AFirebaseException(e.code).message;
     } on FormatException catch (_) {
       throw AFormatException();
+    } on PlatformException catch (e) {
+      throw APlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again. Details: $e';
+    }
+  }
+
+  // Get All Brands
+  Future<List<BrandModel>> getAllBrands() async {
+    try {
+      final snapshot = await _db.collection('Brands').get();
+      if (snapshot.docs.isNotEmpty) {
+        return snapshot.docs.map((e) => BrandModel.fromSnapshot(e)).toList();
+      }
+      return [];
+    } on FirebaseException catch (e) {
+      throw AFirebaseException(e.code).message;
+    } on PlatformException catch (e) {
+      throw APlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again';
+    }
+  }
+
+  // Get Single Brand
+  Future<BrandModel> getSingleBrand(String id) async {
+    try {
+      final snapshot = await _db.collection('Brands').doc(id).get();
+      if (snapshot.exists) {
+        return BrandModel.fromSnapshot(snapshot);
+      }
+      return BrandModel.empty();
+    } on FirebaseException catch (e) {
+      throw AFirebaseException(e.code).message;
+    } on PlatformException catch (e) {
+      throw APlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again';
+    }
+  }
+
+  // Save Brand (Create/Update)
+  Future<void> saveBrand(BrandModel brand) async {
+    try {
+      if (brand.id.isNotEmpty) {
+        // Update
+        await _db.collection("Brands").doc(brand.id).update(brand.toJson());
+      } else {
+        // Create
+        final doc = _db.collection("Brands").doc();
+        brand.id = doc.id;
+        await doc.set(brand.toJson());
+      }
+    } on FirebaseException catch (e) {
+      throw AFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw AFormatException();
+    } on PlatformException catch (e) {
+      throw APlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again. Details: $e';
+    }
+  }
+
+  // Delete Brand
+  Future<void> deleteBrand(String id) async {
+    try {
+      await _db.collection("Brands").doc(id).delete();
+    } on FirebaseException catch (e) {
+      throw AFirebaseException(e.code).message;
     } on PlatformException catch (e) {
       throw APlatformException(e.code).message;
     } catch (e) {

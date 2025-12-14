@@ -7,7 +7,7 @@ import '../../../../../common/widgets/image_text/vertical_image_text.dart';
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/constants/texts.dart';
-import '../../sub_category/sub_gategory.dart';
+import '../../all_product/category_products.dart';
 
 class AHomeCategories extends StatelessWidget {
   const AHomeCategories({
@@ -31,40 +31,40 @@ class AHomeCategories extends StatelessWidget {
           SizedBox(height: ASizes.spaceBtwItems),
 
           //Categories list
-          Obx(
-              (){
-                final categories = controller.featuredCategories;
+          Obx(() {
+            final categories = controller.featuredCategories;
 
-                //loading category
-                if(controller.isCategoriesLoading.value){
-                  return ACategoryShimmer();
-                }
+            //loading category
+            if (controller.isCategoriesLoading.value) {
+              return ACategoryShimmer();
+            }
 
-                //empty category
-                if(categories.isEmpty){
-                  return Text('Categories not found');
-                }
+            //empty category
+            if (categories.isEmpty) {
+              return Text('Categories not found');
+            }
 
-                //data found
-                return SizedBox(
-                  height: 80,
-                  child: ListView.separated(
-                    separatorBuilder: (context, index) => SizedBox(width: ASizes.spaceBtwItems),
-                    scrollDirection: Axis.horizontal,
-                    itemCount: categories.length, //item add
-                    itemBuilder: (context, index) {
-                      CategoryModel category = categories[index];
-                      return AVerticalImageText(
-                        title: category.name,
-                        image: category.image,
-                        textColor: AColors.white,
-                        onTap: () => Get.to(() => SubCategoryScreen()),
-                      );
-                    },
-                  ),
-                );
-              }
-          )
+            //data found
+            return SizedBox(
+              height: 80,
+              child: ListView.separated(
+                separatorBuilder: (context, index) =>
+                    SizedBox(width: ASizes.spaceBtwItems),
+                scrollDirection: Axis.horizontal,
+                itemCount: categories.length, //item add
+                itemBuilder: (context, index) {
+                  CategoryModel category = categories[index];
+                  return AVerticalImageText(
+                    title: category.name,
+                    image: category.image,
+                    textColor: AColors.white,
+                    onTap: () => Get.to(
+                        () => CategoryProductsScreen(category: category)),
+                  );
+                },
+              ),
+            );
+          })
         ],
       ),
     );

@@ -13,22 +13,24 @@ class AStorePrimaryHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        // height
-        SizedBox(height: ASizes.storePrimaryHeaderHeight + 10),
+    return Stack(children: [
+      // height
+      SizedBox(height: ASizes.storePrimaryHeaderHeight + 10),
 
-        // header container
-        APrimaryHeaderContainer(
+      // header container
+      APrimaryHeaderContainer(
           height: ASizes.storePrimaryHeaderHeight,
           child: AAppBar(
-            title: Text('Store', style: Theme.of(context).textTheme.headlineMedium!.apply(color: AColors.white)),
+            title: Text('Store',
+                style: Theme.of(context)
+                    .textTheme
+                    .headlineMedium!
+                    .apply(color: AColors.white)),
             actions: [ACartCounterIcon()],
           )),
 
-        //search bar
-        ASearchBar(),
-      ]
-    );
+      //search bar
+      ASearchBar(),
+    ]);
   }
 }

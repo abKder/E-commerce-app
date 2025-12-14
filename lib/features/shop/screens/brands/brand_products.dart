@@ -12,17 +12,20 @@ class BrandProductsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AAppBar(showBackArrow: true, title: Text('Apple', style: Theme.of(context).textTheme.headlineSmall)),
+      appBar: AAppBar(
+          showBackArrow: true,
+          title:
+              Text('Apple', style: Theme.of(context).textTheme.headlineSmall)),
       body: SingleChildScrollView(
         child: Padding(
           padding: APadding.screenPadding,
           child: Column(
             children: [
-
-              ABrandCard(brand: BrandModel.empty(),),
+              ABrandCard(
+                brand: BrandModel.empty(),
+              ),
               SizedBox(height: ASizes.spaceBtwSections),
-
-              ASortableProducts(),
+              ASortableProducts(products: []),
             ],
           ),
         ),

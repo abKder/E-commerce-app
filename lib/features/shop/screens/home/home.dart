@@ -1,5 +1,6 @@
 import 'package:e_commerce/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:e_commerce/features/shop/controllers/home/home_controller.dart';
+import 'package:e_commerce/features/shop/controllers/product/product_controller.dart';
 import 'package:e_commerce/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:e_commerce/features/shop/screens/home/widgets/home_categories.dart';
 import 'package:e_commerce/common/widgets/custom_shapes/clipper/primary_header_container.dart';
@@ -11,7 +12,7 @@ import '../../../../common/widgets/layouts/grid_layout.dart';
 import '../../../../common/widgets/textfields/search_bar.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
 import '../all_product/all_product.dart';
-
+import '../search/search.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -19,6 +20,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(HomeController());
+    final controller = Get.put(ProductController());
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -45,7 +47,7 @@ class HomeScreen extends StatelessWidget {
                     )),
 
                 //search bar
-                ASearchBar(),
+                ASearchBar(onTap: () => Get.to(() => const SearchScreen())),
               ],
             ),
 
@@ -60,16 +62,30 @@ class HomeScreen extends StatelessWidget {
                   const SizedBox(height: ASizes.spaceBtwSections),
 
                   //section heading
-                  ASectionHeading(title: 'Popular Products', onPressed: () => Get.to(() => AllProductScreen())),
+                  ASectionHeading(
+                      title: 'Popular Products',
+                      onPressed: () => Get.to(() => AllProductScreen())),
                   const SizedBox(height: ASizes.spaceBtwItems),
 
                   //vertical product card
-                  AGridLayout(
-                    itemCount: 6,
-                    itemBuilder: (context, index) {
-                      return AProductCardVertical();
-                    },
-                  )
+                  //vertical product card
+                  Obx(() {
+                    if (controller.isLoading.value)
+                      return const Center(child: CircularProgressIndicator());
+
+                    if (controller.featuredProducts.isEmpty) {
+                      return Center(
+                          child: Text('No Data Found!',
+                              style: Theme.of(context).textTheme.bodyMedium));
+                    }
+                    return AGridLayout(
+                      itemCount: controller.featuredProducts.length,
+                      itemBuilder: (context, index) {
+                        return AProductCardVertical(
+                            product: controller.featuredProducts[index]);
+                      },
+                    );
+                  })
                 ],
               ),
             )

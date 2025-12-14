@@ -4,9 +4,9 @@ import '../../../utils/constants/sizes.dart';
 class AGridLayout extends StatelessWidget {
   const AGridLayout(
       {super.key,
-        required this.itemCount,
-        this.mainAxisExtent = 200,
-        required this.itemBuilder});
+      required this.itemCount,
+      this.mainAxisExtent = 230,
+      required this.itemBuilder});
 
   final int itemCount;
   final double? mainAxisExtent;

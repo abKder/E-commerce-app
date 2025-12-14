@@ -12,9 +12,11 @@ class AElevatedButton extends StatelessWidget {
   final Widget child;
   @override
   Widget build(BuildContext context) {
-
     return SizedBox(
-      width: ADeviceHelper.getScreenWidth(context),
-      child: ElevatedButton(onPressed: onPressed, child: child,));
+        width: ADeviceHelper.getScreenWidth(context),
+        child: ElevatedButton(
+          onPressed: onPressed,
+          child: child,
+        ));
   }
 }

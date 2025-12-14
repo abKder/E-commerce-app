@@ -1,3 +1,4 @@
+import 'package:e_commerce/features/shop/controllers/cart/cart_controller.dart';
 import 'package:e_commerce/common/styles/padding.dart';
 import 'package:e_commerce/common/widgets/appbar/appbar.dart';
 import 'package:e_commerce/common/widgets/button/elevated_button.dart';
@@ -8,16 +9,18 @@ import 'package:get/get.dart';
 import '../checkout/checkout.dart';
 
 class CartScreen extends StatelessWidget {
-  const CartScreen({super.key
-  });
-
+  const CartScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    final controller = CartController.instance;
 
+    return Scaffold(
       //appbar
-      appBar: AAppBar(showBackArrow: true, title: Text('Cart', style: Theme.of(context).textTheme.headlineMedium)),
+      appBar: AAppBar(
+          showBackArrow: true,
+          title:
+              Text('Cart', style: Theme.of(context).textTheme.headlineMedium)),
 
       //body
       body: Padding(
@@ -25,17 +28,14 @@ class CartScreen extends StatelessWidget {
         child: ACartItems(),
       ),
 
-
       //bottom navigation
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(ASizes.defaultSpace),
-        child: AElevatedButton( onPressed: () => Get.to(() => CheckoutScreen()),child: Text('Checkout  \$4900'),),
+        child: Obx(() => AElevatedButton(
+              onPressed: () => Get.to(() => CheckoutScreen()),
+              child: Text('Checkout  \$${controller.totalCartPrice.value}'),
+            )),
       ),
-
-
     );
   }
 }
-
-
-

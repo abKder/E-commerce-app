@@ -7,26 +7,21 @@ import '../helpers/helper_function.dart';
 
 class ASnackBarHelpers {
   static customToast({required message}) {
-    ScaffoldMessenger.of(Get.context!).showSnackBar(SnackBar(
-      elevation: 0,
-      duration: const Duration(seconds: 3),
-      backgroundColor: Colors.transparent,
-      content: Container(
-        padding: const EdgeInsets.all(12.0),
-        margin: const EdgeInsets.symmetric(horizontal: 30.0),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30),
-            color: AHelperFunctions.inDarkMode(Get.context!)
-                ? AColors.darkerGrey.withValues(alpha: 0.9)
-                : AColors.grey.withValues(alpha: 0.9)),
-        child: Center(
-          child: Text(
-            message,
-            style: Theme.of(Get.context!).textTheme.labelLarge,
-          ),
-        ),
+    Get.rawSnackbar(
+      messageText: Text(
+        message,
+        style: const TextStyle(color: Colors.white),
       ),
-    ));
+      borderRadius: 30,
+      margin: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 10),
+      backgroundColor: AHelperFunctions.inDarkMode(Get.context!)
+          ? AColors.darkerGrey.withOpacity(0.9)
+          : AColors.grey.withOpacity(0.9),
+      duration: const Duration(seconds: 3),
+      snackPosition: SnackPosition.BOTTOM,
+      isDismissible: true,
+      shouldIconPulse: true,
+    );
   }
 
   /// Warning Orange Snack bar
