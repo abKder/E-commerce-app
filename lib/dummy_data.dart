@@ -102,9 +102,11 @@ class ADummyData {
         stock: 15,
         price: 115,
         thumbnail: AImages.fFishDessert,
+        images: [],
         description:
         "Stay stylish and comfortable with this casual outfit combo featuring a soft olive-green T-shirt, classic denim shorts, and sleek black slip-on shoes. Perfect for laid-back days or casual outings. Easy to wear, easy to love — all-in-one style made simple.",
         brand: brands[0],
+        productAttributes:[],
         salePrice: 100,
         sku: 'ABR4568',
         categoryId: '7',
@@ -118,9 +120,11 @@ class ADummyData {
         price: 30,
         isFeatured: true,
         thumbnail: AImages.fBreakfast,
+        images: [],
         description:
         'Elevate your game with the ProGrip™ Basketball — designed for both indoor courts and outdoor play. Its textured grip ensures maximum control, while the durable rubber build offers long-lasting performance. Perfect for casual shoots or intense matches!',
         brand: brands[0],
+        productAttributes: [],
         salePrice: 24,
         sku: 'ABR4568',
         categoryId: '23',
@@ -134,6 +138,7 @@ class ADummyData {
         price: 700,
         isFeatured: false,
         thumbnail: AImages.ePhone,
+        images: [],
         description:
         'Experience the power of the A15 Bionic chip, advanced dual-camera system, and stunning Super Retina XDR display. The iPhone 14 in elegant blue delivers lightning-fast performance, all-day battery life, and next-level photography — all in a sleek, durable design.',
         brand: brands[5],
@@ -148,6 +153,7 @@ class ADummyData {
               id: '1',
               attributeValues: {'Storage': '128GB'},
               price: 600,
+               image: "",
               description: 'This is description of 128GB Storage',
               sku: 'iPhoneSKU',
               stock: 10),
@@ -155,6 +161,7 @@ class ADummyData {
               id: '2',
               attributeValues: {'Storage': '256GB'},
               price: 650,
+              image: '',
               description: 'This is description of 256GB Storage',
               sku: 'iPhoneSKU',
               stock: 20),
@@ -162,6 +169,7 @@ class ADummyData {
               id: '3',
               attributeValues: {'Storage': '512GB'},
               price: 700,
+              image: "",
               description: 'This is description of 512GB Storage',
               sku: 'iPhoneSKU',
               stock: 10)
@@ -237,7 +245,7 @@ class ADummyData {
         thumbnail: AImages.toyCar,
         description:
         'Floral Affair captures the essence of blooming cherry blossoms with a soft, feminine fragrance that lingers beautifully. Ideal for daily wear or special evenings, it’s a delicate blend of floral notes that leaves a lasting impression.',
-        brand: brands[6],
+        brand: brands[5],
         salePrice: 58.99,
         sku: 'ABR4568',
         categoryId: '15',
@@ -435,7 +443,7 @@ class ADummyData {
       "Stay cozy and stylish with this khaki hooded winter jacket from Breakout. Designed with a soft inner lining, full front zip, and buttoned flap pockets, it’s perfect for chilly days and casual outings. The ribbed cuffs and hem ensure a snug fit all day long.",
       sku: 'JACKET-BREAKOUT',
       categoryId: '8',
-      brand: brands[6],
+      brand: brands[5],
       productType: 'ProductType.single',
     ),
 
@@ -463,7 +471,7 @@ class ADummyData {
         salePrice: 23.99,
         thumbnail: AImages.fBreakfast,
         stock: 12,
-        brand: brands[6],
+        brand: brands[5],
         categoryId: '7',
         description:
         "Keep it cool and casual with this light grey relaxed fit shirt from Breakout. Featuring short sleeves, a soft collar, and breathable fabric, it’s perfect for summer days, beach outings, or layering over a tee. A wardrobe staple with effortless style.",
@@ -479,7 +487,7 @@ class ADummyData {
       thumbnail: AImages.kitchenItem5,
       images: [AImages.kitchenItem5],
       stock: 12,
-      brand: brands[10],
+      brand: brands[1],
       categoryId: '10',
       description:
       "Add timeless charm to your formal look with these sleek tan brown slip-on dress shoes. Featuring a smooth leather finish, cushioned insole, and durable sole, they’re perfect for the office, business events, or formal occasions.",

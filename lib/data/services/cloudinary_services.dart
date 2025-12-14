@@ -14,6 +14,8 @@ class CloudinaryServices extends GetxController {
 
   /// [UploadImage] - Function to upload Image
   Future<dio.Response> uploadImage(XFile image, String folderName) async {
+
+    print('hit.. product Image');
     try {
       String api = AApiUrls.uploadApi(AKeys.cloudName);
 
