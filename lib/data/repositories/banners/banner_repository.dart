@@ -29,9 +29,11 @@ class BannerRepository extends GetxController {
 // Web-compatible: Load asset bytes
         final byteData = await rootBundle.load(banner.imageUrl);
         final bytes = byteData.buffer.asUint8List();
-        final image = XFile.fromData(bytes, name: banner.imageUrl.split('/').last); // Create XFile from bytes
+        final image = XFile.fromData(bytes,
+            name: banner.imageUrl.split('/').last); // Create XFile from bytes
 
-        dio.Response response = await _cloudinaryServices.uploadImage(image, AKeys.bannersFolder);
+        dio.Response response =
+            await _cloudinaryServices.uploadImage(image, AKeys.bannersFolder);
 
         if (response.statusCode == 200) {
           banner.imageUrl = response.data['url'];
@@ -51,21 +53,80 @@ class BannerRepository extends GetxController {
   }
 
   /// Get all order related to current user
-  Future<List<BannerModel>> fetchActiveBanners() async{
-    try{
+  Future<List<BannerModel>> fetchActiveBanners() async {
+    try {
+      final query = await _db
+          .collection(AKeys.bannerCollection)
+          .where('active', isEqualTo: true)
+          .get();
 
-      final query = await _db.collection(AKeys.bannerCollection).where('active', isEqualTo: true).get();
-      
-      if(query.docs.isNotEmpty){
-        List<BannerModel> banners = query.docs.map((document) => BannerModel.fromDocument(document)).toList();
+      if (query.docs.isNotEmpty) {
+        List<BannerModel> banners = query.docs
+            .map((document) => BannerModel.fromDocument(document))
+            .toList();
         return banners;
       }
       return [];
-
-    }  on FirebaseException catch (e) {
+    } on FirebaseException catch (e) {
       throw AFirebaseException(e.code).message;
     } on FormatException catch (_) {
       throw AFormatException();
+    } on PlatformException catch (e) {
+      throw APlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again. Details: $e';
+    }
+  }
+
+  // Fetch ALL Banners (Active & Inactive) for Admin
+  Future<List<BannerModel>> fetchAllBanners() async {
+    try {
+      final query = await _db.collection(AKeys.bannerCollection).get();
+      if (query.docs.isNotEmpty) {
+        return query.docs.map((doc) => BannerModel.fromDocument(doc)).toList();
+      }
+      return [];
+    } on FirebaseException catch (e) {
+      throw AFirebaseException(e.code).message;
+    } on PlatformException catch (e) {
+      throw APlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again. Details: $e';
+    }
+  }
+
+  // Save Banner
+  Future<void> saveBanner(BannerModel banner) async {
+    try {
+      if (banner.id.isNotEmpty) {
+        // Update
+        await _db
+            .collection(AKeys.bannerCollection)
+            .doc(banner.id)
+            .update(banner.toJson());
+      } else {
+        // Create
+        final doc = _db.collection(AKeys.bannerCollection).doc();
+        banner.id = doc.id;
+        // Ensure id is part of the model if needed, or just set it
+        // Note: BannerModel might need id field populated if it's not transparently handled
+        await doc.set(banner.toJson());
+      }
+    } on FirebaseException catch (e) {
+      throw AFirebaseException(e.code).message;
+    } on PlatformException catch (e) {
+      throw APlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again. Details: $e';
+    }
+  }
+
+  // Delete Banner
+  Future<void> deleteBanner(String bannerId) async {
+    try {
+      await _db.collection(AKeys.bannerCollection).doc(bannerId).delete();
+    } on FirebaseException catch (e) {
+      throw AFirebaseException(e.code).message;
     } on PlatformException catch (e) {
       throw APlatformException(e.code).message;
     } catch (e) {

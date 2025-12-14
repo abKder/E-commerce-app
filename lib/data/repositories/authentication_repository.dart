@@ -31,8 +31,8 @@ class AuthenticationRepository extends GetxController {
 
     //redirect to the right screen
     screenRedirect();
-    
-    Get.put(ProductRepository()).uploadProducts(ADummyData.products);
+
+    // Get.put(ProductRepository()).uploadProducts(ADummyData.products);
   }
 
   //function to redirect to the right screen
@@ -157,7 +157,8 @@ class AuthenticationRepository extends GetxController {
 
       //remove profile picture from cloudinary
       if (UserController.instance.user.value.publicId.isNotEmpty) {
-        UserRepository.instance.deleteProfilePicture(UserController.instance.user.value.publicId);
+        UserRepository.instance
+            .deleteProfilePicture(UserController.instance.user.value.publicId);
       }
 
       await _auth.currentUser?.delete();

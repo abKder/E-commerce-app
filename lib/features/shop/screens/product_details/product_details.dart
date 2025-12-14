@@ -11,11 +11,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:readmore/readmore.dart';
 
+import 'package:e_commerce/features/shop/models/product_model.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
 import '../checkout/checkout.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
-  const ProductDetailsScreen({super.key});
+  const ProductDetailsScreen({super.key, required this.product});
+
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
@@ -26,53 +29,54 @@ class ProductDetailsScreen extends StatelessWidget {
         child: Column(
           children: [
             //product image and slider
-            AProductThumbnailAndSlider(dark: dark),
+            AProductThumbnailAndSlider(dark: dark, product: product),
 
             //Product details
 
-           Padding(
-             padding: APadding.screenPadding,
-             child: Column(
-               children: [
-                 //price title Stock and brand
-                 AProductMetaData(),
-                 SizedBox(height: ASizes.spaceBtwItems),
+            Padding(
+              padding: APadding.screenPadding,
+              child: Column(
+                children: [
+                  //price title Stock and brand
+                  AProductMetaData(product: product),
+                  SizedBox(height: ASizes.spaceBtwItems),
 
-                 //attribute
-                 AProductAttributes(),
-                 SizedBox(height: ASizes.spaceBtwSections),
+                  //attribute
+                  AProductAttributes(product: product),
+                  SizedBox(height: ASizes.spaceBtwSections),
 
-                 //checkout button
-                 AElevatedButton(onPressed: () => Get.to(() => CheckoutScreen()), child: Text('Checkout')),
-                 SizedBox(height: ASizes.spaceBtwSections),
+                  //checkout button
+                  AElevatedButton(
+                      onPressed: () => Get.to(() => CheckoutScreen()),
+                      child: Text('Checkout')),
+                  SizedBox(height: ASizes.spaceBtwSections),
 
-                 //description
-                 ASectionHeading(title: 'Description', showActionButton: false),
-                 SizedBox(height: ASizes.spaceBtwItems),
+                  //description
+                  ASectionHeading(
+                      title: 'Description', showActionButton: false),
+                  SizedBox(height: ASizes.spaceBtwItems),
 
-
-                 ReadMoreText(
-                   'The Apple Watch is a premium smartwatch that keeps you connected, active, and healthy.It tracks workouts, steps, heart rate, sleep, and offers advanced sensors like ECG and SpO₂.You can receive calls, messages, and notifications right on your wrist.Its Retina display, smooth performance, and water resistance make it ideal for everyday use.With customizable faces and seamless iPhone integration, it becomes your perfect daily companion.',
-                   trimLines: 2,
-                   trimMode: TrimMode.Line,
-                   trimCollapsedText: ' Show more',
-                   trimExpandedText: ' Less',
-                   moreStyle: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w800),
-                   lessStyle: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w800),
-                 ),
-                 SizedBox(height: ASizes.spaceBtwSections),
-               ],
-             ),
-           )
-
+                  ReadMoreText(
+                    product.description ?? '',
+                    trimLines: 2,
+                    trimMode: TrimMode.Line,
+                    trimCollapsedText: ' Show more',
+                    trimExpandedText: ' Less',
+                    moreStyle:
+                        TextStyle(fontSize: 14.0, fontWeight: FontWeight.w800),
+                    lessStyle:
+                        TextStyle(fontSize: 14.0, fontWeight: FontWeight.w800),
+                  ),
+                  SizedBox(height: ASizes.spaceBtwSections),
+                ],
+              ),
+            )
           ],
         ),
       ),
 
       //bottom navigation
-      bottomNavigationBar: ABottomAddToCart(),
+      bottomNavigationBar: ABottomAddToCart(product: product),
     );
   }
 }
-
-

@@ -3,6 +3,7 @@ import 'package:e_commerce/data/repositories/authentication_repository.dart';
 import 'package:e_commerce/features/personalization/screens/profile/widgets/profile_primary_header.dart';
 import 'package:e_commerce/features/personalization/screens/profile/widgets/setting_menu_tile.dart';
 import 'package:e_commerce/features/personalization/screens/profile/widgets/user_profile_tile.dart';
+import 'package:e_commerce/features/shop/screens/cart/cart.dart';
 import 'package:e_commerce/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -20,7 +21,6 @@ class ProfileScreen extends StatelessWidget {
         child: Column(
           children: [
             AProfilePrimaryHeader(),
-
             Padding(
               padding: const EdgeInsets.all(ASizes.defaultSpace),
               child: Column(
@@ -30,35 +30,39 @@ class ProfileScreen extends StatelessWidget {
                   SizedBox(height: ASizes.spaceBtwItems),
 
                   //account setting heading
-                  ASectionHeading(title: 'Account Settings', showActionButton: false),
+                  ASectionHeading(
+                      title: 'Account Settings', showActionButton: false),
 
                   //setting menu
                   SettingMenuTile(
                     icon: Iconsax.safe_home,
-                    title:'My Addresses',
+                    title: 'My Addresses',
                     subtitle: 'Set shopping delivery addresses',
                     onTap: () => Get.to(() => AddressScreen()),
                   ),
-                  SettingMenuTile(icon: Iconsax.shopping_cart,
+                  SettingMenuTile(
+                    icon: Iconsax.shopping_cart,
                     title: 'My Cart',
                     subtitle: 'Add, remove products and move to checkout',
-                    onTap: (){},
+                    onTap: () {
+                      Get.to(() => CartScreen());
+                    },
                   ),
                   SettingMenuTile(
-                    icon: Iconsax.bag_tick,
-                    title:'My Orders',
-                    subtitle: 'In progress and Completed Orders',
-                    onTap: () => Get.to(() => OrderScreen())),
-                  SizedBox(height: ASizes.spaceBtwSections),
-                  
-                  
-                  //logout button
-                  
-                  SizedBox(
-                    width: double.infinity,
-                      child: OutlinedButton(onPressed: AuthenticationRepository.instance.logout, child: Text('Logout'))),
+                      icon: Iconsax.bag_tick,
+                      title: 'My Orders',
+                      subtitle: 'In progress and Completed Orders',
+                      onTap: () => Get.to(() => OrderScreen())),
                   SizedBox(height: ASizes.spaceBtwSections),
 
+                  //logout button
+
+                  SizedBox(
+                      width: double.infinity,
+                      child: OutlinedButton(
+                          onPressed: AuthenticationRepository.instance.logout,
+                          child: Text('Logout'))),
+                  SizedBox(height: ASizes.spaceBtwSections),
                 ],
               ),
             )
@@ -68,9 +72,3 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-

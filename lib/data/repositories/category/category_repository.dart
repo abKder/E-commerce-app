@@ -30,22 +30,30 @@ class CategoryRepository extends GetxController {
       for (var category in categories) {
         // Skip if already a network URL
         if (category.image.startsWith('http')) {
-          await _db.collection(AKeys.categoryCollection).doc(category.id).set(category.toJson());
+          await _db
+              .collection(AKeys.categoryCollection)
+              .doc(category.id)
+              .set(category.toJson());
           continue;
         }
 
         // Web-compatible: Load asset bytes
         final byteData = await rootBundle.load(category.image);
         final bytes = byteData.buffer.asUint8List();
-        final image = XFile.fromData(bytes, name: category.image.split('/').last); // Create XFile from bytes
+        final image = XFile.fromData(bytes,
+            name: category.image.split('/').last); // Create XFile from bytes
 
-        dio.Response response = await _cloudinaryServices.uploadImage(image, AKeys.categoryFolder);
+        dio.Response response =
+            await _cloudinaryServices.uploadImage(image, AKeys.categoryFolder);
 
         if (response.statusCode == 200) {
           category.image = response.data['url'];
         }
 
-        await _db.collection(AKeys.categoryCollection).doc(category.id).set(category.toJson());
+        await _db
+            .collection(AKeys.categoryCollection)
+            .doc(category.id)
+            .set(category.toJson());
       }
     } on FirebaseException catch (e) {
       throw AFirebaseException(e.code).message;
@@ -73,6 +81,45 @@ class CategoryRepository extends GetxController {
       throw AFirebaseException(e.code).message;
     } on FormatException catch (_) {
       throw AFormatException();
+    } on PlatformException catch (e) {
+      throw APlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again. Details: $e';
+    }
+  }
+
+  // Save Category (Create or Update)
+  Future<void> saveCategory(CategoryModel category) async {
+    try {
+      // If valid ID, update, else new doc
+      if (category.id.isNotEmpty) {
+        await _db
+            .collection(AKeys.categoryCollection)
+            .doc(category.id)
+            .set(category.toJson());
+      } else {
+        // Generate ID
+        final docRef = _db.collection(AKeys.categoryCollection).doc();
+        category.id = docRef.id;
+        await docRef.set(category.toJson());
+      }
+    } on FirebaseException catch (e) {
+      throw AFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw AFormatException();
+    } on PlatformException catch (e) {
+      throw APlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again. Details: $e';
+    }
+  }
+
+  // Delete Category
+  Future<void> deleteCategory(String categoryId) async {
+    try {
+      await _db.collection(AKeys.categoryCollection).doc(categoryId).delete();
+    } on FirebaseException catch (e) {
+      throw AFirebaseException(e.code).message;
     } on PlatformException catch (e) {
       throw APlatformException(e.code).message;
     } catch (e) {

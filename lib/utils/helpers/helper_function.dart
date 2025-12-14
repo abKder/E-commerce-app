@@ -65,6 +65,14 @@ class AHelperFunctions {
     }
   }
 
+  static String getFormattedDate(DateTime? date,
+      {String format = 'dd MMM yyyy'}) {
+    if (date == null) return '';
+    // simple fallback formatting if intl not used, but user likely expects standard format.
+    // simpler: return date.toString().split(' ')[0]; // yyyy-mm-dd
+    return "${date.day}-${date.month}-${date.year}";
+  }
+
 //function asset to file
   static Future<File> assetToFile(String assetPath) async {
     //load asset

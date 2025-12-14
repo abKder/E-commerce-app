@@ -12,9 +12,7 @@ import '../../icons/circular_icon.dart';
 import '../../images/rounded_image.dart';
 
 class AProductCardHorizontal extends StatelessWidget {
-  const AProductCardHorizontal({
-    super.key
-  });
+  const AProductCardHorizontal({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +22,7 @@ class AProductCardHorizontal extends StatelessWidget {
       padding: EdgeInsets.all(1),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(ASizes.productImageRadius),
-          color: dark ? AColors.darkerGrey : AColors.white
-      ),
-
+          color: dark ? AColors.darkerGrey : AColors.white),
       child: Row(
         children: [
           //left portion
@@ -41,7 +37,6 @@ class AProductCardHorizontal extends StatelessWidget {
                     width: 120,
                     height: 120,
                     child: ARoundedImage(imageUrl: AImages.fFoodMango)),
-
 
                 //discount tag
                 Positioned(
@@ -63,7 +58,8 @@ class AProductCardHorizontal extends StatelessWidget {
                 Positioned(
                     right: 0,
                     top: 0,
-                    child: ACircularIcon(icon: Iconsax.heart5, color: Colors.red))
+                    child:
+                        ACircularIcon(icon: Iconsax.heart5, color: Colors.red))
               ],
             ),
           ),
@@ -71,31 +67,24 @@ class AProductCardHorizontal extends StatelessWidget {
           //right portion
           SizedBox(
             width: 170.0,
-
             child: Padding(
               padding: const EdgeInsets.only(left: ASizes.sm, top: ASizes.sm),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-
                       AProductTitleText(title: 'Yellow Mango', smallSize: true),
                       SizedBox(height: ASizes.spaceBtwItems / 2),
-
                       ABrandTitleWithVerifyIcon(title: 'Mango'),
-
                     ],
                   ),
                   Spacer(),
-
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Flexible(child: AProductPriceText(price: '120')),
-
                       Container(
                         width: ASizes.iconLg * 1.2,
                         height: ASizes.iconLg * 1.2,
@@ -103,7 +92,8 @@ class AProductCardHorizontal extends StatelessWidget {
                             color: AColors.primary,
                             borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(ASizes.cardRadiusMd),
-                              bottomRight: Radius.circular(ASizes.productImageRadius),
+                              bottomRight:
+                                  Radius.circular(ASizes.productImageRadius),
                             )),
                         child: Icon(Iconsax.add, color: AColors.white),
                       )

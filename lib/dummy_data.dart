@@ -9,89 +9,289 @@ import 'features/shop/models/product_model.dart';
 import 'features/shop/models/product_variation_model.dart';
 
 class ADummyData {
-
   /// List of all Banners
 
-  static final List<BannerModel> banner = [
-    BannerModel(imageUrl: AImages.banner1, targetScreen: ARoutes.order, active: true),
-    BannerModel(imageUrl: AImages.banner2, targetScreen: ARoutes.cart, active: true),
-    BannerModel(imageUrl: AImages.banner3, targetScreen: ARoutes.wishlist, active: true),
-    BannerModel(imageUrl: AImages.banner5, targetScreen: ARoutes.productDetail, active: true),
-    BannerModel(imageUrl: AImages.banner5, targetScreen: ARoutes.profile, active: true),
+  static final List<BannerModel> banners = [
+    BannerModel(
+        id: '1',
+        imageUrl: AImages.banner1,
+        targetScreen: ARoutes.order,
+        active: false),
+    BannerModel(
+        id: '2',
+        imageUrl: AImages.banner2,
+        targetScreen: ARoutes.cart,
+        active: true),
+    BannerModel(
+        id: '3',
+        imageUrl: AImages.banner3,
+        targetScreen: ARoutes.wishlist,
+        active: true),
+    BannerModel(
+        id: '4',
+        imageUrl: AImages.banner4,
+        targetScreen: ARoutes.search,
+        active: true),
+    BannerModel(
+        id: '5',
+        imageUrl: AImages.banner5,
+        targetScreen: ARoutes.profile,
+        active: true),
   ];
-
-
 
   /// List of all Categories
   static final List<CategoryModel> categories = [
     /// Parent Categories
     /// food
-    CategoryModel(id: '1', name: 'Food', image: AImages.foodIcon, isFeatured: true,
+    CategoryModel(
+        id: '1',
+        name: 'Food',
+        image: AImages.foodIcon,
+        isFeatured: true,
         subCategory: [
-      CategoryModel(id: '8', name: 'Mongo', image: AImages.fFoodMango, parentId: '1', isFeatured: false, subCategory: []),
-      CategoryModel(id: '9', name: 'Breakfast', image: AImages.fBreakfast, parentId: '1', isFeatured: false, subCategory: []),
-      CategoryModel(id: '10', name: 'Fish Dessert', image: AImages.fFishDessert, parentId: '1', isFeatured: false, subCategory: [])
+          CategoryModel(
+              id: '8',
+              name: 'Mongo',
+              image: AImages.fFoodMango,
+              parentId: '1',
+              isFeatured: false,
+              subCategory: []),
+          CategoryModel(
+              id: '9',
+              name: 'Breakfast',
+              image: AImages.fBreakfast,
+              parentId: '1',
+              isFeatured: false,
+              subCategory: []),
+          CategoryModel(
+              id: '10',
+              name: 'Fish Dessert',
+              image: AImages.fFishDessert,
+              parentId: '1',
+              isFeatured: false,
+              subCategory: [])
         ]),
 
     /// Kitchen utils
-    CategoryModel(id: '2', name: 'Kitchen Utils', image: AImages.kitchenIcon, isFeatured: true,
+    CategoryModel(
+        id: '2',
+        name: 'Kitchen Utils',
+        image: AImages.kitchenIcon,
+        isFeatured: true,
         subCategory: [
-      CategoryModel(id: '11', name: 'Kitchen Item', image: AImages.kitchenItem1, parentId: '2', isFeatured: false, subCategory: []),
-      CategoryModel(id: '12', name: 'Kitchen Item', image: AImages.kitchenItem2, parentId: '2', isFeatured: false, subCategory: []),
+          CategoryModel(
+              id: '11',
+              name: 'Kitchen Item',
+              image: AImages.kitchenItem1,
+              parentId: '2',
+              isFeatured: false,
+              subCategory: []),
+          CategoryModel(
+              id: '12',
+              name: 'Kitchen Item',
+              image: AImages.kitchenItem2,
+              parentId: '2',
+              isFeatured: false,
+              subCategory: []),
         ]),
 
     // /// fashion
-    CategoryModel(id: '3', name: 'Fashion', image: AImages.fashionIcon, isFeatured: true,
+    CategoryModel(
+        id: '3',
+        name: 'Fashion',
+        image: AImages.fashionIcon,
+        isFeatured: true,
         subCategory: [
-      CategoryModel(id: '13', name: 'Pant', image: AImages.fashionPant, parentId: '3', isFeatured: false, subCategory: []),
-      CategoryModel(id: '14', name: 'Pant', image: AImages.fashionPant, parentId: '3', isFeatured: false, subCategory: []),
-      CategoryModel(id: '15', name: 'Pant', image: AImages.fashionPant, parentId: '3', isFeatured: false, subCategory: []),
-      CategoryModel(id: '16', name: 'Pant', image: AImages.fashionPant, parentId: '3', isFeatured: false, subCategory: []),
-      CategoryModel(id: '17', name: 'Pant', image: AImages.fashionPant, parentId: '3', isFeatured: false, subCategory: []),
+          CategoryModel(
+              id: '13',
+              name: 'Pant',
+              image: AImages.fashionPant,
+              parentId: '3',
+              isFeatured: false,
+              subCategory: []),
+          CategoryModel(
+              id: '14',
+              name: 'Pant',
+              image: AImages.fashionPant,
+              parentId: '3',
+              isFeatured: false,
+              subCategory: []),
+          CategoryModel(
+              id: '15',
+              name: 'Pant',
+              image: AImages.fashionPant,
+              parentId: '3',
+              isFeatured: false,
+              subCategory: []),
+          CategoryModel(
+              id: '16',
+              name: 'Pant',
+              image: AImages.fashionPant,
+              parentId: '3',
+              isFeatured: false,
+              subCategory: []),
+          CategoryModel(
+              id: '17',
+              name: 'Pant',
+              image: AImages.fashionPant,
+              parentId: '3',
+              isFeatured: false,
+              subCategory: []),
         ]),
 
 // /// skin care
-    CategoryModel(id: '4', name: 'Skin Care', image: AImages.skinIcon, isFeatured: true,
+    CategoryModel(
+        id: '4',
+        name: 'Skin Care',
+        image: AImages.skinIcon,
+        isFeatured: true,
         subCategory: [
-      CategoryModel(id: '18', name: 'Body', image: AImages.skinBody, parentId: '4', isFeatured: false, subCategory: []),
-      CategoryModel(id: '19', name: 'Clinic', image: AImages.skinClinic, parentId: '4', isFeatured: false, subCategory: []),
-      CategoryModel(id: '20', name: 'Fresh', image: AImages.skinFresh, parentId: '4', isFeatured: false, subCategory: []),
+          CategoryModel(
+              id: '18',
+              name: 'Body',
+              image: AImages.skinBody,
+              parentId: '4',
+              isFeatured: false,
+              subCategory: []),
+          CategoryModel(
+              id: '19',
+              name: 'Clinic',
+              image: AImages.skinClinic,
+              parentId: '4',
+              isFeatured: false,
+              subCategory: []),
+          CategoryModel(
+              id: '20',
+              name: 'Fresh',
+              image: AImages.skinFresh,
+              parentId: '4',
+              isFeatured: false,
+              subCategory: []),
         ]),
 
 // /// electronics
-    CategoryModel(id: '5', name: 'Electronics', image: AImages.electronicsIcon, isFeatured: true,
+    CategoryModel(
+        id: '5',
+        name: 'Electronics',
+        image: AImages.electronicsIcon,
+        isFeatured: true,
         subCategory: [
-      CategoryModel(id: '21', name: 'Watch', image: AImages.eAnalogWatch, parentId: '5', isFeatured: false, subCategory: []),
-      CategoryModel(id: '22', name: 'Iphone', image: AImages.ePhone, parentId: '5', isFeatured: false, subCategory: []),
+          CategoryModel(
+              id: '21',
+              name: 'Watch',
+              image: AImages.eAnalogWatch,
+              parentId: '5',
+              isFeatured: false,
+              subCategory: []),
+          CategoryModel(
+              id: '22',
+              name: 'Iphone',
+              image: AImages.ePhone,
+              parentId: '5',
+              isFeatured: false,
+              subCategory: []),
         ]),
 
     // /// stationary
-    CategoryModel(id: '6', name: 'Stationary', image: AImages.stationaryIcon, isFeatured: true,
+    CategoryModel(
+        id: '6',
+        name: 'Stationary',
+        image: AImages.stationaryIcon,
+        isFeatured: true,
         subCategory: [
-      CategoryModel(id: '23', name: 'Color Pen', image: AImages.stationaryColorPen, parentId: '6', isFeatured: false, subCategory: []),
-      CategoryModel(id: '24', name: 'Daba', image: AImages.stationaryDaba, parentId: '6', isFeatured: false, subCategory: []),
-      CategoryModel(id: '25', name: 'Kokbat', image: AImages.stationaryKokbat, parentId: '6', isFeatured: false, subCategory: []),
-      CategoryModel(id: '26', name: 'Pen', image: AImages.stationaryPen, parentId: '6', isFeatured: false, subCategory: []),
+          CategoryModel(
+              id: '23',
+              name: 'Color Pen',
+              image: AImages.stationaryColorPen,
+              parentId: '6',
+              isFeatured: false,
+              subCategory: []),
+          CategoryModel(
+              id: '24',
+              name: 'Daba',
+              image: AImages.stationaryDaba,
+              parentId: '6',
+              isFeatured: false,
+              subCategory: []),
+          CategoryModel(
+              id: '25',
+              name: 'Kokbat',
+              image: AImages.stationaryKokbat,
+              parentId: '6',
+              isFeatured: false,
+              subCategory: []),
+          CategoryModel(
+              id: '26',
+              name: 'Pen',
+              image: AImages.stationaryPen,
+              parentId: '6',
+              isFeatured: false,
+              subCategory: []),
         ]),
 
     //toys
-    CategoryModel(id: '7', name: 'Toys', image: AImages.toysIcon, isFeatured: true,
+    CategoryModel(
+        id: '7',
+        name: 'Toys',
+        image: AImages.toysIcon,
+        isFeatured: true,
         subCategory: [
-      CategoryModel(id: '27', name: 'Car', image: AImages.toyCar, parentId: '7', isFeatured: false, subCategory: []),
-      CategoryModel(id: '28', name: 'Toy', image: AImages.toyToy, parentId: '7', isFeatured: false, subCategory: []),
+          CategoryModel(
+              id: '27',
+              name: 'Car',
+              image: AImages.toyCar,
+              parentId: '7',
+              isFeatured: false,
+              subCategory: []),
+          CategoryModel(
+              id: '28',
+              name: 'Toy',
+              image: AImages.toyToy,
+              parentId: '7',
+              isFeatured: false,
+              subCategory: []),
         ]),
   ];
 
   /// List of all Brands
   static final List<BrandModel> brands = [
-    BrandModel(id: '1', image: AImages.apple, name: 'Apple', productsCount: 2, isFeatured: true),
-    BrandModel(id: '2', image: AImages.adidas, name: 'Adidas', productsCount: 2, isFeatured: true),
-    BrandModel(id: '3', image: AImages.nike, name: 'Nike', productsCount: 8, isFeatured: true),
-    BrandModel(id: '4', image: AImages.bloody, name: 'Bloody', productsCount: 4, isFeatured: true),
-    BrandModel(id: '5', image: AImages.hp, name: 'Hp', productsCount: 7, isFeatured: true),
-    BrandModel(id: '6', image: AImages.polo, name: 'Polo', productsCount: 4, isFeatured: true),
+    BrandModel(
+        id: '1',
+        image: AImages.apple,
+        name: 'Apple',
+        productsCount: 2,
+        isFeatured: true),
+    BrandModel(
+        id: '2',
+        image: AImages.adidas,
+        name: 'Adidas',
+        productsCount: 2,
+        isFeatured: true),
+    BrandModel(
+        id: '3',
+        image: AImages.nike,
+        name: 'Nike',
+        productsCount: 8,
+        isFeatured: true),
+    BrandModel(
+        id: '4',
+        image: AImages.bloody,
+        name: 'Bloody',
+        productsCount: 4,
+        isFeatured: true),
+    BrandModel(
+        id: '5',
+        image: AImages.hp,
+        name: 'Hp',
+        productsCount: 7,
+        isFeatured: true),
+    BrandModel(
+        id: '6',
+        image: AImages.polo,
+        name: 'Polo',
+        productsCount: 4,
+        isFeatured: true),
   ];
-
 
   /// List of all products - 68 Products
   static final List<ProductModel> products = [
@@ -104,9 +304,9 @@ class ADummyData {
         thumbnail: AImages.fFishDessert,
         images: [],
         description:
-        "Stay stylish and comfortable with this casual outfit combo featuring a soft olive-green T-shirt, classic denim shorts, and sleek black slip-on shoes. Perfect for laid-back days or casual outings. Easy to wear, easy to love — all-in-one style made simple.",
+            "Stay stylish and comfortable with this casual outfit combo featuring a soft olive-green T-shirt, classic denim shorts, and sleek black slip-on shoes. Perfect for laid-back days or casual outings. Easy to wear, easy to love — all-in-one style made simple.",
         brand: brands[0],
-        productAttributes:[],
+        productAttributes: [],
         salePrice: 100,
         sku: 'ABR4568',
         categoryId: '7',
@@ -122,7 +322,7 @@ class ADummyData {
         thumbnail: AImages.fBreakfast,
         images: [],
         description:
-        'Elevate your game with the ProGrip™ Basketball — designed for both indoor courts and outdoor play. Its textured grip ensures maximum control, while the durable rubber build offers long-lasting performance. Perfect for casual shoots or intense matches!',
+            'Elevate your game with the ProGrip™ Basketball — designed for both indoor courts and outdoor play. Its textured grip ensures maximum control, while the durable rubber build offers long-lasting performance. Perfect for casual shoots or intense matches!',
         brand: brands[0],
         productAttributes: [],
         salePrice: 24,
@@ -140,20 +340,21 @@ class ADummyData {
         thumbnail: AImages.ePhone,
         images: [],
         description:
-        'Experience the power of the A15 Bionic chip, advanced dual-camera system, and stunning Super Retina XDR display. The iPhone 14 in elegant blue delivers lightning-fast performance, all-day battery life, and next-level photography — all in a sleek, durable design.',
+            'Experience the power of the A15 Bionic chip, advanced dual-camera system, and stunning Super Retina XDR display. The iPhone 14 in elegant blue delivers lightning-fast performance, all-day battery life, and next-level photography — all in a sleek, durable design.',
         brand: brands[5],
         salePrice: 679,
         sku: 'ABR4568',
         categoryId: '19',
         productAttributes: [
-          ProductAttributeModel(name: 'Storage', values: ['128GB', '256GB', '512GB']),
+          ProductAttributeModel(
+              name: 'Storage', values: ['128GB', '256GB', '512GB']),
         ],
         productVariations: [
-           ProductVariationModel(
+          ProductVariationModel(
               id: '1',
               attributeValues: {'Storage': '128GB'},
               price: 600,
-               image: "",
+              image: "",
               description: 'This is description of 128GB Storage',
               sku: 'iPhoneSKU',
               stock: 10),
@@ -185,13 +386,19 @@ class ADummyData {
         isFeatured: true,
         thumbnail: AImages.eWatch,
         description:
-        'The Apple iPhone X redefined smartphones with its edge-to-edge 5.8” Super Retina display, powerful A11 Bionic chip, and Face ID facial recognition technology. Its sleek glass body, dual 12MP cameras, and wireless charging make it a top choice for premium performance and timeless style.',
+            'The Apple iPhone X redefined smartphones with its edge-to-edge 5.8” Super Retina display, powerful A11 Bionic chip, and Face ID facial recognition technology. Its sleek glass body, dual 12MP cameras, and wireless charging make it a top choice for premium performance and timeless style.',
         brand: brands[2],
-        images: [AImages.eWatch, AImages.eWatch, AImages.eWatch, AImages.eWatch],
+        images: [
+          AImages.eWatch,
+          AImages.eWatch,
+          AImages.eWatch,
+          AImages.eWatch
+        ],
         sku: 'ABR4568',
         categoryId: '19',
         productAttributes: [
-          ProductAttributeModel(name: 'Storage', values: ['64GB', '128GB', '256GB']),
+          ProductAttributeModel(
+              name: 'Storage', values: ['64GB', '128GB', '256GB']),
           ProductAttributeModel(name: 'Color', values: ['Black', 'Silver'])
         ],
         productVariations: [
@@ -244,7 +451,7 @@ class ADummyData {
         isFeatured: false,
         thumbnail: AImages.toyCar,
         description:
-        'Floral Affair captures the essence of blooming cherry blossoms with a soft, feminine fragrance that lingers beautifully. Ideal for daily wear or special evenings, it’s a delicate blend of floral notes that leaves a lasting impression.',
+            'Floral Affair captures the essence of blooming cherry blossoms with a soft, feminine fragrance that lingers beautifully. Ideal for daily wear or special evenings, it’s a delicate blend of floral notes that leaves a lasting impression.',
         brand: brands[5],
         salePrice: 58.99,
         sku: 'ABR4568',
@@ -259,7 +466,7 @@ class ADummyData {
         price: 50,
         thumbnail: AImages.kitchenItem1,
         description:
-        'J. Pour Femme is a sophisticated fragrance designed for the modern woman. With a graceful blend of floral and musky notes, it delivers a soft yet long-lasting scent perfect for everyday elegance or special occasions.',
+            'J. Pour Femme is a sophisticated fragrance designed for the modern woman. With a graceful blend of floral and musky notes, it delivers a soft yet long-lasting scent perfect for everyday elegance or special occasions.',
         brand: brands[2],
         salePrice: 48.99,
         sku: 'ABR4568',
@@ -276,7 +483,7 @@ class ADummyData {
       thumbnail: AImages.kitchenItem2,
       //16/512
       description:
-      "Smoky Vanillin is an intense and captivating fragrance that blends rich vanilla with deep smoky undertones. Designed for those who love bold and lasting scents, this perfume brings a touch of luxury and mystery to your signature style.",
+          "Smoky Vanillin is an intense and captivating fragrance that blends rich vanilla with deep smoky undertones. Designed for those who love bold and lasting scents, this perfume brings a touch of luxury and mystery to your signature style.",
       brand: brands[2],
       salePrice: 64.99,
       sku: 'SKU-PERFUME',
@@ -292,7 +499,7 @@ class ADummyData {
       price: 55.99,
       thumbnail: AImages.kitchenItem3,
       description:
-      'Bloom Pour Femme is a delightful fragrance that captures the beauty of blossoming flowers in every spray. With soft floral notes and a refreshing finish, this perfume is perfect for daily wear and adds a gentle, graceful touch to your presence.',
+          'Bloom Pour Femme is a delightful fragrance that captures the beauty of blossoming flowers in every spray. With soft floral notes and a refreshing finish, this perfume is perfect for daily wear and adds a gentle, graceful touch to your presence.',
       salePrice: 49.99,
       brand: brands[1],
       sku: 'SKU-PERFUME',
@@ -309,7 +516,7 @@ class ADummyData {
       price: 8.99,
       thumbnail: AImages.skinBeauty,
       description:
-      "Add a pop of color to your step with these soft, cozy striped socks in a vibrant red and cream design. Perfect for daily wear, lounging, or gifting – these socks offer warmth and comfort without compromising on style.",
+          "Add a pop of color to your step with these soft, cozy striped socks in a vibrant red and cream design. Perfect for daily wear, lounging, or gifting – these socks offer warmth and comfort without compromising on style.",
       brand: brands[3],
       sku: 'NDURE_SOCKS',
       categoryId: '9',
@@ -323,7 +530,7 @@ class ADummyData {
         brand: brands[3],
         thumbnail: AImages.skinClinic,
         description:
-        "Step up your street style with these trendy blue high-top sneakers. Designed with breathable mesh panels, cushioned ankle support, and durable laces, they offer a perfect mix of comfort and edge — ideal for casual outings or everyday wear.",
+            "Step up your street style with these trendy blue high-top sneakers. Designed with breathable mesh panels, cushioned ankle support, and durable laces, they offer a perfect mix of comfort and edge — ideal for casual outings or everyday wear.",
         price: 59.99,
         stock: 10,
         categoryId: '11',
@@ -363,7 +570,7 @@ class ADummyData {
       stock: 200,
       price: 4,
       description:
-      "These classic ankle-length Bata socks combine a sleek black base with a white cuff and a snug fit for all-day comfort. Perfect for daily wear, sports, or casual outings, they offer a breathable and stretchable design with premium-quality fabric.",
+          "These classic ankle-length Bata socks combine a sleek black base with a white cuff and a snug fit for all-day comfort. Perfect for daily wear, sports, or casual outings, they offer a breathable and stretchable design with premium-quality fabric.",
       thumbnail: AImages.fashionPant,
       sku: 'BATA-SOCKS',
       categoryId: '9',
@@ -375,12 +582,13 @@ class ADummyData {
     // 012
     ProductModel(
         id: '12',
-        title: 'Bata Formal Socks – Black with Grey Stripes,  Classic, Breathable & Office-Ready',
+        title:
+            'Bata Formal Socks – Black with Grey Stripes,  Classic, Breathable & Office-Ready',
         stock: 10,
         price: 4.99,
         thumbnail: AImages.fDessert,
         description:
-        "Designed for everyday elegance, these black formal socks from Bata feature subtle grey stripes and a comfortable stretch fit. Ideal for workwear or formal occasions, they provide a smooth finish, reinforced toe, and breathable fabric for all-day wear.",
+            "Designed for everyday elegance, these black formal socks from Bata feature subtle grey stripes and a comfortable stretch fit. Ideal for workwear or formal occasions, they provide a smooth finish, reinforced toe, and breathable fabric for all-day wear.",
         sku: "BATA-SOCKS",
         brand: brands[3],
         categoryId: '9',
@@ -394,7 +602,7 @@ class ADummyData {
         stock: 23,
         thumbnail: AImages.toyToy,
         description:
-        "Turn heads with this vibrant electric blue mini handbag, designed for fashion-forward women on the go. Featuring a sleek structure, sturdy handles, and a polished zipper finish, it’s perfect for essentials like your phone, wallet, and keys — ideal for both day and",
+            "Turn heads with this vibrant electric blue mini handbag, designed for fashion-forward women on the go. Featuring a sleek structure, sturdy handles, and a polished zipper finish, it’s perfect for essentials like your phone, wallet, and keys — ideal for both day and",
         sku: 'J.-BAGS',
         brand: brands[4],
         categoryId: '14',
@@ -409,7 +617,7 @@ class ADummyData {
         salePrice: 87.99,
         thumbnail: AImages.stationaryColorPen,
         description:
-        "Step into sophistication with these sleek black loafers featuring a polished finish and stylish tassel detail. Designed for formal events, office wear, or smart-casual outings, these shoes offer both comfort and class with every step.",
+            "Step into sophistication with these sleek black loafers featuring a polished finish and stylish tassel detail. Designed for formal events, office wear, or smart-casual outings, these shoes offer both comfort and class with every step.",
         sku: 'NDURE-FORMAL',
         brand: brands[3],
         categoryId: '10',
@@ -418,13 +626,14 @@ class ADummyData {
     // 015
     ProductModel(
         id: '15',
-        title: 'Men’s Athletic Running Shoes – Blue & Grey Lightweight. Breathable. Performance-Ready',
+        title:
+            'Men’s Athletic Running Shoes – Blue & Grey Lightweight. Breathable. Performance-Ready',
         price: 54.99,
         stock: 54,
         salePrice: 47.99,
         thumbnail: AImages.stationaryDaba,
         description:
-        "Hit the ground running with these sporty blue and grey athletic shoes. Built for comfort and grip, they feature a breathable mesh upper, cushioned sole, and durable traction — ideal for workouts, jogs, or everyday active wear.",
+            "Hit the ground running with these sporty blue and grey athletic shoes. Built for comfort and grip, they feature a breathable mesh upper, cushioned sole, and durable traction — ideal for workouts, jogs, or everyday active wear.",
         sku: 'SPORTS-SHOES',
         brand: brands[4],
         categoryId: '11',
@@ -440,7 +649,7 @@ class ADummyData {
       images: [AImages.stationaryKokbat],
       stock: 153,
       description:
-      "Stay cozy and stylish with this khaki hooded winter jacket from Breakout. Designed with a soft inner lining, full front zip, and buttoned flap pockets, it’s perfect for chilly days and casual outings. The ribbed cuffs and hem ensure a snug fit all day long.",
+          "Stay cozy and stylish with this khaki hooded winter jacket from Breakout. Designed with a soft inner lining, full front zip, and buttoned flap pockets, it’s perfect for chilly days and casual outings. The ribbed cuffs and hem ensure a snug fit all day long.",
       sku: 'JACKET-BREAKOUT',
       categoryId: '8',
       brand: brands[5],
@@ -457,7 +666,7 @@ class ADummyData {
       brand: brands[5],
       thumbnail: AImages.fDessert,
       description:
-      "Elevate your everyday look with this stylish blue and black checkered flannel shirt from Breakout. Crafted from soft, breathable fabric, it features twin front pockets, button-down design, and a classic fit — perfect for layering or wearing on its own.",
+          "Elevate your everyday look with this stylish blue and black checkered flannel shirt from Breakout. Crafted from soft, breathable fabric, it features twin front pockets, button-down design, and a classic fit — perfect for layering or wearing on its own.",
       sku: "SHORT-BREAKOUT",
       productType: 'ProductType.single',
       categoryId: '7',
@@ -474,7 +683,7 @@ class ADummyData {
         brand: brands[5],
         categoryId: '7',
         description:
-        "Keep it cool and casual with this light grey relaxed fit shirt from Breakout. Featuring short sleeves, a soft collar, and breathable fabric, it’s perfect for summer days, beach outings, or layering over a tee. A wardrobe staple with effortless style.",
+            "Keep it cool and casual with this light grey relaxed fit shirt from Breakout. Featuring short sleeves, a soft collar, and breathable fabric, it’s perfect for summer days, beach outings, or layering over a tee. A wardrobe staple with effortless style.",
         sku: "SHORT-WHITE-BREAKOUT",
         productType: 'ProductType.single'),
 
@@ -490,7 +699,7 @@ class ADummyData {
       brand: brands[1],
       categoryId: '10',
       description:
-      "Add timeless charm to your formal look with these sleek tan brown slip-on dress shoes. Featuring a smooth leather finish, cushioned insole, and durable sole, they’re perfect for the office, business events, or formal occasions.",
+          "Add timeless charm to your formal look with these sleek tan brown slip-on dress shoes. Featuring a smooth leather finish, cushioned insole, and durable sole, they’re perfect for the office, business events, or formal occasions.",
       sku: "FORMAL-BROWN-NDURE",
       productType: 'ProductType.single',
     ),
@@ -506,7 +715,7 @@ class ADummyData {
       brand: brands[3],
       categoryId: '11',
       description:
-      "hese coffee brown lace-up sneakers are the perfect mix of casual and cool. With a smooth finish, contrasting navy laces, and cushioned sole, they’re designed for daily wear, from weekend hangouts to casual office days.",
+          "hese coffee brown lace-up sneakers are the perfect mix of casual and cool. With a smooth finish, contrasting navy laces, and cushioned sole, they’re designed for daily wear, from weekend hangouts to casual office days.",
       sku: "COFFEE-BROWN-BATA",
       productType: 'ProductType.single',
     ),
@@ -514,7 +723,8 @@ class ADummyData {
     // 021
     ProductModel(
         id: '21',
-        title: 'Casual Winter Outfit Set – Olive Sweater, Blue Jeans & Grey Sneakers',
+        title:
+            'Casual Winter Outfit Set – Olive Sweater, Blue Jeans & Grey Sneakers',
         thumbnail: AImages.eCamera,
         price: 89.99,
         salePrice: 78.87,
@@ -522,12 +732,8 @@ class ADummyData {
         brand: brands[1],
         stock: 23,
         description:
-        "This cozy winter-ready combo features a chunky olive green knit sweater, classic blue denim jeans, and a pair of trendy grey sneakers with tan laces. Whether you’re heading out for a casual day or a weekend hangout, this outfit offers both comfort and effortless style.",
+            "This cozy winter-ready combo features a chunky olive green knit sweater, classic blue denim jeans, and a pair of trendy grey sneakers with tan laces. Whether you’re heading out for a casual day or a weekend hangout, this outfit offers both comfort and effortless style.",
         sku: 'ADIDAS-COMBO',
         productType: 'ProductType.single'),
   ];
-
-
-
-
 }

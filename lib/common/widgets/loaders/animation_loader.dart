@@ -27,7 +27,8 @@ class AAnimationLoader extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           /// Animation
-          Lottie.asset(animation, width: Get.width * 0.8),
+          // Lottie.asset(animation, width: Get.width * 0.8),
+          CircularProgressIndicator(),
           const SizedBox(height: ASizes.defaultSpace),
 
           /// Title

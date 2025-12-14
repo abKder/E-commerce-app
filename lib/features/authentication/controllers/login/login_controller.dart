@@ -1,4 +1,5 @@
 import 'package:e_commerce/data/repositories/authentication_repository.dart';
+import 'package:e_commerce/features/admin/screens/navigation/admin_navigation_menu.dart';
 import 'package:e_commerce/utils/helpers/network_manager.dart';
 import 'package:e_commerce/utils/popups/full_screen_loader.dart';
 import 'package:e_commerce/utils/popups/snackbar_helpers.dart';
@@ -34,6 +35,7 @@ class LoginController extends GetxController {
       if (!isConnected) {
         AFullScreenLoader.stopLoading();
         ASnackBarHelpers.warningSnackBar(title: 'No Internet Connection');
+        return;
       }
 
       //form validation
@@ -51,8 +53,18 @@ class LoginController extends GetxController {
         localStorage.remove('Remember_password');
       }
 
+      // Check for Admin Credentials
+      if (email.text.trim() == 'superadmin@gmail.com' &&
+          password.text.trim() == 'superadmin@gmail.com') {
+        AFullScreenLoader.stopLoading();
+        // Redirect to Admin Dashboard
+        Get.offAll(() => const AdminNavigationMenu());
+        return;
+      }
+
       //login user with email and password
-     await AuthenticationRepository.instance.loginWithEmailAndPassword(email.text.trim(), password.text.trim());
+      await AuthenticationRepository.instance
+          .loginWithEmailAndPassword(email.text.trim(), password.text.trim());
 
       //stop loading
       AFullScreenLoader.stopLoading();
@@ -61,8 +73,8 @@ class LoginController extends GetxController {
       AuthenticationRepository.instance.screenRedirect();
     } catch (e) {
       AFullScreenLoader.stopLoading();
-      ASnackBarHelpers.errorSnackBar(title: 'Login Failed', message: e.toString());
-
+      ASnackBarHelpers.errorSnackBar(
+          title: 'Login Failed', message: e.toString());
     }
   }
 }

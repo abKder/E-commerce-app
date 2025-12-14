@@ -16,13 +16,18 @@ class EditProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = UserController.instance;
     return Scaffold(
-      appBar: AAppBar(
-        showBackArrow: true,
-        title: Text('Edit Profile', style: Theme.of(context).textTheme.headlineMedium),
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        leading: IconButton(
+          onPressed: () => {Get.back()},
+          icon: Icon(Iconsax.arrow_left),
+        ),
+        title: Text('Edit Profile',
+            style: Theme.of(context).textTheme.headlineMedium),
       ),
       body: SingleChildScrollView(
         child: Padding(
-            padding: APadding.screenPadding,
+          padding: APadding.screenPadding,
           child: Column(
             children: [
               //user profile with edit icon
@@ -34,12 +39,19 @@ class EditProfileScreen extends StatelessWidget {
               SizedBox(height: ASizes.spaceBtwItems),
 
               //account setting heading
-              ASectionHeading(title: 'Account Setting', showActionButton: false),
+              ASectionHeading(
+                  title: 'Account Setting', showActionButton: false),
               SizedBox(height: ASizes.spaceBtwItems),
 
               //account details
-              UserDetailRow( title: 'Name', value: controller.user.value.fullName, onTap: () => Get.to(() => ChangeNameScreen())),
-              UserDetailRow( title: 'Username', value: controller.user.value.email, onTap: (){}),
+              UserDetailRow(
+                  title: 'Name',
+                  value: controller.user.value.fullName,
+                  onTap: () => Get.to(() => ChangeNameScreen())),
+              UserDetailRow(
+                  title: 'Username',
+                  value: controller.user.value.email,
+                  onTap: () {}),
               SizedBox(height: ASizes.spaceBtwItems),
 
               //divider
@@ -47,14 +59,24 @@ class EditProfileScreen extends StatelessWidget {
               SizedBox(height: ASizes.spaceBtwItems),
 
               //profile section heading
-              ASectionHeading(title: 'Profile Setting', showActionButton: false),
+              ASectionHeading(
+                  title: 'Profile Setting', showActionButton: false),
               SizedBox(height: ASizes.spaceBtwItems),
 
               //profile setting
-              UserDetailRow( title: 'User ID', value: controller.user.value.id, onTap: (){}),
-              UserDetailRow( title: 'Email', value: controller.user.value.email, onTap: (){}),
-              UserDetailRow( title: 'Phone Number', value: controller.user.value.phoneNumber, onTap: (){}),
-              UserDetailRow( title: 'Gender', value: 'Male', onTap: (){}),
+              UserDetailRow(
+                  title: 'User ID',
+                  value: controller.user.value.id,
+                  onTap: () {}),
+              UserDetailRow(
+                  title: 'Email',
+                  value: controller.user.value.email,
+                  onTap: () {}),
+              UserDetailRow(
+                  title: 'Phone Number',
+                  value: controller.user.value.phoneNumber,
+                  onTap: () {}),
+              UserDetailRow(title: 'Gender', value: 'Male', onTap: () {}),
               SizedBox(height: ASizes.spaceBtwItems),
 
               //divider
@@ -62,7 +84,10 @@ class EditProfileScreen extends StatelessWidget {
               SizedBox(height: ASizes.spaceBtwItems),
 
               //close account button
-              TextButton(onPressed: controller.deleteAccountWarningPopup, child: Text('Close Account', style: TextStyle(color: Colors.red)))
+              TextButton(
+                  onPressed: controller.deleteAccountWarningPopup,
+                  child: Text('Close Account',
+                      style: TextStyle(color: Colors.red)))
             ],
           ),
         ),
@@ -88,15 +113,22 @@ class UserDetailRow extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: ASizes.spaceBtwItems / 1.5),
+        padding:
+            const EdgeInsets.symmetric(vertical: ASizes.spaceBtwItems / 1.5),
         child: Row(
           children: [
             Expanded(
                 flex: 3,
-                child: Text(title,style: Theme.of(context).textTheme.bodySmall, overflow: TextOverflow.ellipsis)),
+                child: Text(title,
+                    style: Theme.of(context).textTheme.bodySmall,
+                    overflow: TextOverflow.ellipsis)),
             Expanded(
                 flex: 5,
-                child: Text(value, style: Theme.of(context).textTheme.bodyMedium, overflow: TextOverflow.ellipsis,)),
+                child: Text(
+                  value,
+                  style: Theme.of(context).textTheme.bodyMedium,
+                  overflow: TextOverflow.ellipsis,
+                )),
             Expanded(child: Icon(icon, size: ASizes.iconSm))
           ],
         ),
@@ -104,5 +136,3 @@ class UserDetailRow extends StatelessWidget {
     );
   }
 }
-
-
