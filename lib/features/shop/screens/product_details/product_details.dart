@@ -1,6 +1,5 @@
 import 'package:e_commerce/common/styles/padding.dart';
 import 'package:e_commerce/common/widgets/button/elevated_button.dart';
-import 'package:e_commerce/features/shop/screens/order/order.dart';
 import 'package:e_commerce/features/shop/screens/product_details/widgets/bottom_add_to_cart.dart';
 import 'package:e_commerce/features/shop/screens/product_details/widgets/product_attribute.dart';
 import 'package:e_commerce/features/shop/screens/product_details/widgets/product_meta_data.dart';

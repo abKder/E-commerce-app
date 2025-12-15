@@ -1,7 +1,6 @@
 import 'package:e_commerce/features/admin/screens/dashboard/admin_dashboard.dart';
 import 'package:e_commerce/features/admin/screens/products/admin_products_screen.dart';
 import 'package:e_commerce/features/admin/screens/order/admin_order_screen.dart';
-import 'package:e_commerce/features/personalization/screens/profile/profile.dart';
 import 'package:e_commerce/utils/constants/colors.dart';
 import 'package:e_commerce/utils/helpers/helper_function.dart';
 import 'package:flutter/material.dart';

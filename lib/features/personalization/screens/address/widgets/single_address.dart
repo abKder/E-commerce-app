@@ -33,12 +33,12 @@ class ASingleAddress extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Abdul Kader',
+              Text('Mosfaka Ikfat Zannata',
                   style: Theme.of(context).textTheme.titleLarge,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis),
               SizedBox(height: ASizes.spaceBtwItems / 2),
-              Text('01581030425', maxLines: 1, overflow: TextOverflow.ellipsis),
+              Text('01555548885', maxLines: 1, overflow: TextOverflow.ellipsis),
               SizedBox(height: ASizes.spaceBtwItems / 2),
               Text('House No.153, Dhaka, Mirpur-2, Block.CH'),
             ],

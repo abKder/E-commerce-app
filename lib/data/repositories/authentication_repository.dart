@@ -1,6 +1,4 @@
-import 'package:e_commerce/data/repositories/product/product_repository.dart';
 import 'package:e_commerce/data/repositories/user/user_repository.dart';
-import 'package:e_commerce/dummy_data.dart';
 import 'package:e_commerce/features/authentication/screens/login/login.dart';
 import 'package:e_commerce/features/authentication/screens/onBoarding/onboarding.dart';
 import 'package:e_commerce/features/authentication/screens/signup/verify_email.dart';

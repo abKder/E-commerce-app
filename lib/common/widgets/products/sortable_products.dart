@@ -24,7 +24,7 @@ class ASortableProducts extends StatelessWidget {
 
     return Column(
       children: [
-        //filter field
+        //search field
         DropdownButtonFormField(
           decoration: InputDecoration(prefixIcon: Icon(Iconsax.sort)),
           value: controller.selectedSortOption.value,

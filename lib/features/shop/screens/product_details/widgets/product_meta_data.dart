@@ -1,5 +1,4 @@
 import 'package:e_commerce/data/repositories/brand/brand_repository.dart';
-import 'package:e_commerce/features/shop/models/brand_model.dart';
 import 'package:e_commerce/features/shop/models/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

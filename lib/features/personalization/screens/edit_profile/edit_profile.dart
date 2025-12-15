@@ -1,5 +1,4 @@
 import 'package:e_commerce/common/styles/padding.dart';
-import 'package:e_commerce/common/widgets/appbar/appbar.dart';
 import 'package:e_commerce/common/widgets/texts/section_heading.dart';
 import 'package:e_commerce/features/personalization/controllers/user_controller.dart';
 import 'package:e_commerce/features/personalization/screens/change_name/change_name.dart';
@@ -76,7 +75,7 @@ class EditProfileScreen extends StatelessWidget {
                   title: 'Phone Number',
                   value: controller.user.value.phoneNumber,
                   onTap: () {}),
-              UserDetailRow(title: 'Gender', value: 'Male', onTap: () {}),
+              UserDetailRow(title: 'Gender', value: '....', onTap: () {}),
               SizedBox(height: ASizes.spaceBtwItems),
 
               //divider
@@ -86,7 +85,7 @@ class EditProfileScreen extends StatelessWidget {
               //close account button
               TextButton(
                   onPressed: controller.deleteAccountWarningPopup,
-                  child: Text('Close Account',
+                  child: Text('Account Delete',
                       style: TextStyle(color: Colors.red)))
             ],
           ),

@@ -47,8 +47,7 @@ class AProductCardVertical extends StatelessWidget {
                 children: [
                   //thumbnail
                   Center(
-                      child: ARoundedImage(
-                          imageUrl: product.thumbnail, isNetworkImage: true)),
+                      child: ARoundedImage(imageUrl: product.thumbnail, isNetworkImage: true)),
 
                   //discount tag
                   if (product.salePrice > 0)

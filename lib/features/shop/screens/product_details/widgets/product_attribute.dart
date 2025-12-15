@@ -68,8 +68,7 @@ class AProductAttributes extends StatelessWidget {
                 ],
               ),
 
-              AProductTitleText(
-                  title: product.title ?? '', smallSize: true, maxLines: 4),
+              AProductTitleText(title: product.title ?? "", smallSize: true, maxLines: 4),
             ],
           ),
         ),

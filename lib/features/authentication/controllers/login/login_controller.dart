@@ -54,8 +54,8 @@ class LoginController extends GetxController {
       }
 
       // Check for Admin Credentials
-      if (email.text.trim() == 'superadmin@gmail.com' &&
-          password.text.trim() == 'superadmin@gmail.com') {
+      if (email.text.trim() == 'kader@gmail.com' &&
+          password.text.trim() == 'kader@gmail.com') {
         AFullScreenLoader.stopLoading();
         // Redirect to Admin Dashboard
         Get.offAll(() => const AdminNavigationMenu());
